@@ -52,7 +52,6 @@ function roll_player2(){
     rolled.innerText=num.toString()
     let p2_price=Number(document.getElementById('p2').innerText)
     if (num!=1){
-        //console.log(p1_price)
         let p2=document.getElementById('p2')
         p2.innerText=(p2_price+num).toString()
     } else if(p2_price==100){
