@@ -1,3 +1,3 @@
 # flask_project
 
-much better thsn django
+much better than django
