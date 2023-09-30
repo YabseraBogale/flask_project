@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Pig Game</title>
+</head>
+<body>
+    <h1>
+        New Game <button onclick="newGame()">New Game</button>
+    </h1>
+    <p>
+        Player 1 <button id="btn1" onclick="roll_player1()" >roll dice</button> 
+    </p>
+    <h2>
+        Player 1 price
+    </h2>
+    <p id="p1">
+            0
+    </p>
+    <h2>
+        Hold
+    </h2>
+    <p>
+        <button onclick="hold_player()">hold</button>
+        <p id="turn">
+            player 1
+        </p>
+    </p>
+    <p>
+        Player 2 <button id="btn2" onclick="roll_player2()">roll dice</button>
+    </p>
+    <h2>
+        Player 2 price
+    </h2>
+    <p id="p2">
+            0
+    </p>
+
+    <h3>rolled</h3>
+    <p id="rolled"></p>
+   <script src="{{url_for('static',filename='app.js')}}"></script>
+</body>
+</html>
