@@ -7,18 +7,23 @@ function newGame(){
 
 function roll_player1(){
     let num=Math.floor(Math.random()*(7-1)+1)
+    let added=Math.floor(Math.random()*(100-1)+1)
     let rolled=document.getElementById('rolled')
     rolled.innerText=num.toString()
     let p1_price=Number(document.getElementById('p1').innerText)
-    if (num!=1){
-        let p1=document.getElementById('p1')
-        p1.innerText=(p1_price+num).toString()
-    } else if(p1_price==100){
+    if (p1_price>=100){
+
         p1.innerText="You Win"
         let btn1=document.getElementById("btn1")
         let btn2=document.getElementById("btn2")
         btn1.disabled=true
         btn2.disabled=true
+    
+    } else if(num!=1 && p1_price<100){
+
+        let p1=document.getElementById('p1')
+        p1.innerText=(p1_price+added).toString()
+    
     }
     else{
         let p1=document.getElementById('p1')
@@ -52,18 +57,22 @@ function hold_player(){
 
 function roll_player2(){
     let num=Math.floor(Math.random()*(7-1)+1)
+    let added=Math.floor(Math.random()*(100-1)+1)
     let rolled=document.getElementById('rolled')
     rolled.innerText=num.toString()
     let p2_price=Number(document.getElementById('p2').innerText)
-    if (num!=1){
-        let p2=document.getElementById('p2')
-        p2.innerText=(p2_price+num).toString()
-    } else if(p2_price==100){
+    if (p2_price>=100){
+        console.log(p2.innerText);
         p2.innerText="You Win"
         let btn1=document.getElementById("btn1")
         let btn2=document.getElementById("btn2")
         btn1.disabled=true
         btn2.disabled=true
+
+    } else if(num!=1 && p2_price<100){
+        let p2=document.getElementById('p2')
+        p2.innerText=(p2_price+added).toString()
+        console.log(p2.innerText);
     }
     else{
         let p2=document.getElementById('p2')
