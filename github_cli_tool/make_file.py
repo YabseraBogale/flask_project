@@ -15,8 +15,21 @@ def run(data):
     return "Done"
 
 
-def seeLast():
-    df=pd.read_sql()
+def creat_table():
+    connect=sqlite3.Connection('word.db')
+    pointer=connect.cursor()
+    stat="""
+        create table word(
+            ID int not null,
+            word varchar(30) not null
+        );
+
+    """
+    pointer.execute(stat)
+    connect.commit()
+    return "Done"
+
+
 
 def seeNumberOfWords():
     connect=sqlite3.Connection('word.db')
@@ -64,4 +77,4 @@ def readFile():
         print(f"setp taking {k}")
     return "Done"
 
-print(readFile())
+print(creat_table())
