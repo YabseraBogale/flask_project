@@ -1,0 +1,65 @@
+import sqlite3
+class WordDatabase():
+    def __init__(self):
+        self.connect=sqlite3.Connection('word.db')
+        self.pointer=self.connect.cursor()
+
+    # the data inserted int run is tuple
+    def run(self,data):
+        stat="insert into word(ID,word) values(?,?)"
+        self.pointer.execute(stat,data)
+        self.connect.commit()
+        return "Done"
+    def creat_table(self):
+        stat="""
+            create table word(
+                ID int not null,
+                word varchar(30) not null
+            );
+
+        """
+        self.pointer.execute(stat)
+        self.connect.commit()
+        return "Done"
+    def seeNumberOfWords(self):
+        stat="select count(Id) from word;"
+        self.pointer.execute(stat)
+        self.result=self.pointer.fetchone()
+        return int(self.result[0])
+    def seeAll(self):
+        stat="select ID,word from word"
+        self.pointer.execute(stat)
+        self.result=self.pointer.fetchall()
+        for i in self.result:
+            print(f"ID:{i[0]} word:{i[1]}")
+        return "Done"
+    def seeWordWithId(self,ID):
+        stat="select word from word where word.ID=(?)"
+        self.pointer.execute(stat,(ID,))
+        self.result=self.pointer.fetchone()
+        return self.result[0]
+    def seeIDWithWord(self,word):
+        stat="select ID from word where word.word=(?)"
+        self.pointer.execute(stat,(word,))
+        self.result=self.pointer.fetchone()
+        return self.result[0]
+    def readFile(self,fileName):
+        file=open(fileName)
+        j=1
+        for i in file.readlines():
+            self.run((j,i.strip()))
+            j+=1
+            k-=1
+            print(f"setp taking {k}")
+        return "Done"
+    def getAll(self):
+        stat="select ID,word from word"
+        self.pointer.execute(stat)
+        self.result=self.pointer.fetchall()
+        return self.result
+
+    def getLastElement(self):
+        pass
+    
+
+
