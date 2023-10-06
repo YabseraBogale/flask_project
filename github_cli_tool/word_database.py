@@ -10,6 +10,13 @@ class WordDatabase():
         self.pointer.execute(stat,data)
         self.connect.commit()
         return "Done"
+    def insertTablePython(self):
+        stat="insert INTO Python(ID,Pword)values(?,?)"
+        lst=self.giveMostPythonKeyWord()
+        for i in lst:
+            self.pointer.execute(stat,(lst.index(i),i))
+            self.connect.commit()
+        return "Done"
     def pythonKeyword(self):
         self.lst=keyword.kwlist
         return self.lst
@@ -26,6 +33,16 @@ class WordDatabase():
                 word varchar(30) not null
             );
 
+        """
+        self.pointer.execute(stat)
+        self.connect.commit()
+        return "Done"
+    def createTablePython(self):
+        stat="""
+            create table Python(
+                ID int not null primary key ,
+                Pword varchar(30) not null unique
+            );
         """
         self.pointer.execute(stat)
         self.connect.commit()
@@ -65,6 +82,17 @@ class WordDatabase():
         self.pointer.execute(stat)
         self.result=self.pointer.fetchall()
         return self.result
+    def giveMostPythonKeyWord(self):
+        self.lst=self.pythonSymbol()+self.pythonKeyword()
+        return self.lst
+    def seeMostPythonKeyWord(self):
+        stat="select ID,Pword FROM Python"
+        self.pointer.execute(stat)
+        self.result=self.pointer.fetchall()
+        print(len(self.result))
+        for i in self.result:
+            print(f"ID {i[0]} KeyWord:{i[1]}")
+        return "Done"
     
 
     

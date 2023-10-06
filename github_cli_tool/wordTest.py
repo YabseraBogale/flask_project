@@ -35,7 +35,7 @@ def createTablePython():
     stat="""
         create table Python(
             ID int not null primary key ,
-            word varchar(30) not null unique
+            Pword varchar(30) not null unique
         );
     """
     connect=sqlite3.connect('test.db')
@@ -45,7 +45,7 @@ def createTablePython():
     return "Done"
 
 def insertTablePython():
-    stat="insert INTO Python(ID,word)values(?,?)"
+    stat="insert INTO Python(ID,Pword)values(?,?)"
     connect=sqlite3.connect('test.db')
     pointer=connect.cursor()
     test=giveMostPythonKeyWord()
@@ -77,4 +77,6 @@ def insertData():
     connect.commit()
     return "Done"
 
-print(seeMostPythonKeyWord())
+test=WordDatabase()
+
+print(test.seeMostPythonKeyWord())
