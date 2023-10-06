@@ -48,9 +48,8 @@ class WordDatabase():
         j=1
         for i in file.readlines():
             self.run((j,i.strip()))
+            print(f"step taking {j}")
             j+=1
-            k-=1
-            print(f"setp taking {k}")
         return "Done"
     def getAll(self):
         stat="select ID,word from word"
