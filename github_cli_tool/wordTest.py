@@ -33,12 +33,12 @@ def create_table():
 
 
 def insertData():
-    stat="insert into word(ID,word) values();"
+    stat="insert into word(ID,word) values(?,?);"
     connect=sqlite3.Connection('test.db')
     pointer=connect.cursor()
-    pointer.execute(stat,(5,"hello"))
+    pointer.execute(stat,(5,"hello",))
     connect.commit()
     return "Done"
 
 
-print(create_table())
+print(insertData())
