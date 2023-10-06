@@ -1,6 +1,7 @@
 from word_database import WordDatabase
 import random
 import sqlite3
+import os
 
 def giveRandomWord():
     test=WordDatabase()
@@ -69,6 +70,14 @@ def giveMostPythonKeyWord():
     return test
 
 
+def howManyFilesAndNumberOfWord(fileNumber,fileLength):
+    test=WordDatabase()
+    for i in range(0,fileNumber):
+        test.giveMeLengthOfWordGiveYouFile(fileLength)
+    return "Done"
+
+
+
 def insertData():
     stat="insert into word(ID,word) values(?,?);"
     connect=sqlite3.Connection('test.db')
@@ -77,6 +86,8 @@ def insertData():
     connect.commit()
     return "Done"
 
-test=WordDatabase()
 
-print(test.giveMeLengthOfWordGiveYouFile(100))
+print()
+
+
+

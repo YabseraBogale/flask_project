@@ -1,6 +1,7 @@
 import sqlite3
 import keyword
 import random
+import os
 class WordDatabase():
     def __init__(self):
         self.connect=sqlite3.Connection('word.db')
