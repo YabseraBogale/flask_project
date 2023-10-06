@@ -44,11 +44,24 @@ def createTablePython():
     connect.commit()
     return "Done"
 
-def InsertTablePython():
-    stat="insert INTO Python(ID,Pword)values(?,?)"
+def insertTablePython():
+    stat="insert INTO Python(ID,word)values(?,?)"
     connect=sqlite3.connect('test.db')
     pointer=connect.cursor()
     test=giveMostPythonKeyWord()
+    for i in test:
+        pointer.execute(stat,(test.index(i),i))
+        connect.commit()
+    return "Done"
+
+def seeMostPythonKeyWord():
+    stat="select ID,WORD FROM Python"
+    connect=sqlite3.connect('test.db')
+    pointer=connect.cursor()
+    pointer.execute(stat)
+    result=pointer.fetchall()
+    for i in result:
+        print(f"ID {i[0]} KeyWord:{i[1]}")
     return "Done"
 
 def giveMostPythonKeyWord():
@@ -64,3 +77,4 @@ def insertData():
     connect.commit()
     return "Done"
 
+print(seeMostPythonKeyWord())
