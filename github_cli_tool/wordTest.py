@@ -20,7 +20,7 @@ def seeLastWord():
 
 def create_table():
     stat="""
-         create table word(
+        create table word(
             ID int not null primary key ,
             word varchar(30) not null unique
         );
@@ -31,6 +31,30 @@ def create_table():
     connect.commit()
     return "Done"
 
+def createTablePython():
+    stat="""
+        create table Python(
+            ID int not null primary key ,
+            word varchar(30) not null unique
+        );
+    """
+    connect=sqlite3.connect('test.db')
+    pointer=connect.cursor()
+    pointer.execute(stat)
+    connect.commit()
+    return "Done"
+
+def InsertTablePython():
+    stat="insert INTO Python(ID,Pword)values(?,?)"
+    connect=sqlite3.connect('test.db')
+    pointer=connect.cursor()
+    test=giveMostPythonKeyWord()
+    return "Done"
+
+def giveMostPythonKeyWord():
+    test=WordDatabase().pythonSymbol()+WordDatabase().pythonKeyword()
+    return test
+
 
 def insertData():
     stat="insert into word(ID,word) values(?,?);"
@@ -40,5 +64,3 @@ def insertData():
     connect.commit()
     return "Done"
 
-
-print(insertData())

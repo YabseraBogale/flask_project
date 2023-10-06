@@ -16,8 +16,9 @@ class WordDatabase():
     def pythonSymbol(self):
         self.symbol=["+","-","*","**","/","//","%","<<",">>","&","|","^","~","<",">",
                         "<=",">=","==","!=","<>","+=","-=","*=","/=","//=","%=","**=","&=","|=","^=",">>=","<<="
-                        "(",")","[","]","{","}",",",":",".","`","=",";"
+                        "(",")","[","]","{","}",",",":",".","`","=",";","'","#","@","'\'"
                     ]
+        return self.symbol
     def creatTableWordList(self):
         stat="""
             create table word(
@@ -64,7 +65,7 @@ class WordDatabase():
         self.pointer.execute(stat)
         self.result=self.pointer.fetchall()
         return self.result
-    def getFile(self):
+    
 
     
 
