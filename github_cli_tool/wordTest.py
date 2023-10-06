@@ -79,4 +79,4 @@ def insertData():
 
 test=WordDatabase()
 
-print(test.seeMostPythonKeyWord())
+print(test.giveMeLengthOfWordGiveYouFile(100))

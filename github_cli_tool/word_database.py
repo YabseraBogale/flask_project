@@ -1,5 +1,6 @@
 import sqlite3
 import keyword
+import random
 class WordDatabase():
     def __init__(self):
         self.connect=sqlite3.Connection('word.db')
@@ -93,8 +94,16 @@ class WordDatabase():
         for i in self.result:
             print(f"ID {i[0]} KeyWord:{i[1]}")
         return "Done"
+    def giveMeLengthOfWordGiveYouFile(self,length):
+        lst=[]
+        fileName=self.seeWordWithId(random.randint(1,10000))+".json"
+        for i in range(0,length):
+            lst.append(self.seeWordWithId(random.randint(1,10000)))
+        file=open(fileName,"+x")
+        file.write(lst)
+        file.close()
+        return "Check in ./commit_files"
+    def closeDatabase(self):
+        self.connect.close()
+        return "closed"
     
-
-    
-
-
