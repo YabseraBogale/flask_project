@@ -1,5 +1,6 @@
-from make_file import WordDatabase
+from word_database import WordDatabase
 import random
+import sqlite3
 
 def giveRandomWord():
     test=WordDatabase()
@@ -17,6 +18,27 @@ def seeLastWord():
     test=WordDatabase()
     print(test.seeWordWithId(10000))
 
-print(seeLastWord())
+def create_table():
+    stat="""
+         create table word(
+            ID int not null primary key ,
+            word varchar(30) not null unique
+        );
+    """
+    connect=sqlite3.Connection('test.db')
+    pointer=connect.cursor()
+    pointer.execute(stat)
+    connect.commit()
+    return "Done"
 
 
+def insertData():
+    stat="insert into word(ID,word) values();"
+    connect=sqlite3.Connection('test.db')
+    pointer=connect.cursor()
+    pointer.execute(stat,(5,"hello"))
+    connect.commit()
+    return "Done"
+
+
+print(create_table())
