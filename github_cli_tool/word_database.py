@@ -1,16 +1,24 @@
 import sqlite3
+import keyword
 class WordDatabase():
     def __init__(self):
         self.connect=sqlite3.Connection('word.db')
         self.pointer=self.connect.cursor()
-
     # the data inserted int run is tuple
     def run(self,data):
         stat="insert into word(ID,word) values(?,?)"
         self.pointer.execute(stat,data)
         self.connect.commit()
         return "Done"
-    def creat_table(self):
+    def pythonKeyword(self):
+        self.lst=keyword.kwlist
+        return self.lst
+    def pythonSymbol(self):
+        self.symbol=["+","-","*","**","/","//","%","<<",">>","&","|","^","~","<",">",
+                        "<=",">=","==","!=","<>","+=","-=","*=","/=","//=","%=","**=","&=","|=","^=",">>=","<<="
+                        "(",")","[","]","{","}",",",":",".","`","=",";"
+                    ]
+    def creatTableWordList(self):
         stat="""
             create table word(
                 ID int not null,
@@ -56,9 +64,8 @@ class WordDatabase():
         self.pointer.execute(stat)
         self.result=self.pointer.fetchall()
         return self.result
+    def getFile(self):
 
-    def getLastElement(self):
-        pass
     
 
 
