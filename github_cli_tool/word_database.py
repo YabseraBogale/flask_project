@@ -97,10 +97,14 @@ class WordDatabase():
         return "Done"
     def giveMeLengthOfWordGiveYouFile(self,length):
         lst=[]
+        commit_files=os.getcwd()+'/commit_files'
         fileName=self.seeWordWithId(random.randint(1,10000))+".json"
+        if not os.path.exists(commit_files):
+            os.mkdir(commit_files)
+        filePath=os.path.join(commit_files,fileName)
         for i in range(0,length):
             lst.append(self.seeWordWithId(random.randint(1,10000)))
-        file=open(fileName,"+x")
+        file=open(filePath,"+x")
         file.write(str(lst))
         file.close()
         return "Check in ./commit_files"

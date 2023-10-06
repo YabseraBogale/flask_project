@@ -87,7 +87,7 @@ def insertData():
     return "Done"
 
 
-print()
+print(howManyFilesAndNumberOfWord(5,50))
 
 
 
