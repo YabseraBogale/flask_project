@@ -100,7 +100,7 @@ class WordDatabase():
         for i in range(0,length):
             lst.append(self.seeWordWithId(random.randint(1,10000)))
         file=open(fileName,"+x")
-        file.write(lst)
+        file.write(str(lst))
         file.close()
         return "Check in ./commit_files"
     def closeDatabase(self):
