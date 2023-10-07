@@ -93,5 +93,12 @@ def gitcommit(msg):
     print(os.system("git add ."))
     print(os.system(f"git commit -m '{msg}'"))
     print(os.system("git push"))
-    print("Fuck it works")
-print(gitcommit("ok"))
+    
+def giveMeCommitNumber(numberOfCommit):
+    for i in range(0,numberOfCommit):
+        Commit().howManyFilesAndNumberOfWord(1,100)
+        msg=WordDatabase().seeWordWithId(random.randint(0,500))
+        gitcommit(msg)
+
+
+print(giveMeCommitNumber(10))
