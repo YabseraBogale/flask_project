@@ -2,6 +2,7 @@ from word_database import WordDatabase
 import random
 import sqlite3
 import os
+import sys
 from main import Commit
 
 def giveRandomWord():
@@ -89,8 +90,5 @@ def insertData():
 
 
 
-test=Commit()
-
-print(test.howManyFilesAndNumberOfWord(10,100))
 
 

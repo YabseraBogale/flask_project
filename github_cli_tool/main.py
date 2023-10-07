@@ -11,3 +11,4 @@ class Commit():
             print(f"setps taking {i+1}")
             self.database.giveMeLengthOfWordGiveYouFile(fileLength)
         return "Done"
+    
