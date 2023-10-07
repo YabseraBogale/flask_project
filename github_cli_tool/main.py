@@ -8,5 +8,6 @@ class Commit():
         self.database=WordDatabase()
     def howManyFilesAndNumberOfWord(self,fileNumber,fileLength):
         for i in range(0,fileNumber):
+            print(f"setps taking {i+1}")
             self.database.giveMeLengthOfWordGiveYouFile(fileLength)
         return "Done"

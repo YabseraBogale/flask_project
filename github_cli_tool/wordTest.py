@@ -91,6 +91,6 @@ def insertData():
 
 test=Commit()
 
-print(test.howManyFilesAndNumberOfWord(100,100))
+print(test.howManyFilesAndNumberOfWord(10,100))
 
 
