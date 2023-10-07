@@ -93,4 +93,5 @@ def gitcommit(msg):
     print(os.system("git add ."))
     print(os.system(f"git commit -m '{msg}'"))
     print(os.system("git push"))
+    print("Fuck it works")
 print(gitcommit("ok"))
