@@ -88,9 +88,9 @@ def insertData():
     connect.commit()
     return "Done"
 
-def gitcommit():
+def gitcommit(msg):
     print(os.system("git status"))
     print(os.system("git add ."))
-    print(os.system(f"git commit -m 'ok'"))
+    print(os.system(f"git commit -m '{msg}'"))
     print(os.system("git push"))
-print(gitcommit())
+print(gitcommit("ok"))
