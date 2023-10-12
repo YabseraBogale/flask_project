@@ -1,6 +1,7 @@
 from word_database import WordDatabase
 import os
 import sys
+from time import sleep
 import random
 
 class Commit():
@@ -18,7 +19,9 @@ class Commit():
         print(os.system("git add ."))
         print(os.system(f"git commit -m '{msg}'"))
         print(os.system("git push"))
+        print(os.system("clear"))
         print(f"Number of commit is at {number_of_time_runnig}")
+        sleep(3)
 
     def giveMeCommitNumber(self,numberOfCommit):
         for i in range(0,numberOfCommit):
