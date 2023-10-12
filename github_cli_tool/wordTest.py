@@ -101,4 +101,5 @@ def giveMeCommitNumber(numberOfCommit):
         gitcommit(msg)
 
 
-print(giveMeCommitNumber(100))
+test=Commit()
+print(test.giveMeCommitNumber(10))
