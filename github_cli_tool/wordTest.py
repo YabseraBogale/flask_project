@@ -101,8 +101,7 @@ def giveMeCommitNumber(numberOfCommit):
         gitcommit(msg)
 
 
-def gitCommmit():
-    os.system()
+
 
 test=Commit()
 print(test.giveMeCommitNumber(10))
