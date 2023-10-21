@@ -21,7 +21,12 @@ class Commit():
         print(os.system("git push"))
         print(f"Number of commit is at {number_of_time_runnig}")
     
-
+    def onlyGitCommit(self):
+        print(os.system("git status"))
+        print(os.system("git add ."))
+        print(os.system("git commit -m 'ok'"))
+        print(os.system("git push"))
+        
     def giveMeCommitNumber(self,numberOfCommit):
         for i in range(0,numberOfCommit):
             self.howManyFilesAndNumberOfWord(1,100)
