@@ -104,4 +104,4 @@ def giveMeCommitNumber(numberOfCommit):
 
 
 test=Commit()
-print(test.giveMeCommitNumber(10))
+
