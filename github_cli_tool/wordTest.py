@@ -1,8 +1,9 @@
 from word_database import WordDatabase
 import random
 import sqlite3
+from time import sleep
 import os
-import sys
+from datetime import datetime 
 from main import Commit
 
 def giveRandomWord():
@@ -99,9 +100,14 @@ def giveMeCommitNumber(numberOfCommit):
         Commit().howManyFilesAndNumberOfWord(1,100)
         msg=WordDatabase().seeWordWithId(random.randint(0,500))
         gitcommit(msg)
+# testing done in second
+def timeIt(minuteToWait):
+    past = datetime.now()
+    sleep(minuteToWait)
+    now= datetime.now()
+    return [past,now]
 
 
-
-
-test=Commit()
+test=timeIt(5)
+print(test)
 
