@@ -27,7 +27,7 @@ class Commit():
             os.system("git add .")
             os.system("git commit -m 'ok'")
             os.system("git push")
-            return "git pushed"
+            return "there is something wrong why is it showing in the terminal ?"
         return "check it ?"                     
   
     def giveMeCommitNumber(self,numberOfCommit):
