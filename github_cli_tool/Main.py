@@ -1,4 +1,6 @@
 import os
+import request
+
 
 class Commit():
 	def onlyGitCommitAll(self):
@@ -9,3 +11,8 @@ class Commit():
 			os.system("git push")
 			return "Operation complete"
 		return "Problem"
+	def checkConnection(self):
+		try:
+			
+		except requests.ConnectionError:
+			return False
