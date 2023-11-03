@@ -1,7 +1,4 @@
 import os
-import request
-
-
 class Commit():
 	
 	def onlyGitCommitAll(self):
@@ -17,9 +14,3 @@ class Commit():
 		os.system("git add .")
 		os.system("git commit -m 'ok'")
 		return "Git Commited"
-		
-	def checkConnection(self):
-		try:
-			
-		except requests.ConnectionError:
-			return False
