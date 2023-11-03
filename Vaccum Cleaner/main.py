@@ -1,3 +1,9 @@
+"""
+ Name: Vaccum cleaner
+ Author: Yabsera Bogale
+ github: YabseraBogale
+
+"""
 from pprint import pprint
 print("Enter \"f\" to Finish")
 q='go'
@@ -14,6 +20,8 @@ while q!="f":
 print("Finished")
 print("Room Histroy")
 pprint(lst)
-	
+
+
+
 
 
