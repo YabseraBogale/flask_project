@@ -1,4 +1,4 @@
-# is code::blocks th
+# is code::blocks the best IDE
 biology=90
 math=90
 chem=100
