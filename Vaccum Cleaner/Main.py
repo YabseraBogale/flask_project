@@ -1,7 +1,11 @@
-import turtle
-frame = turtle.Screen().bgcolor("White")
-draw = turtle.Turtle()
+import turtle as t
 
-draw.color("Green")
-draw.width(3)
-draw.speed(10)
+from random import random
+
+for i in range(100):
+	steps=int(random()*100)
+	angle=int(random()*360)
+	t.right(angle)
+	t.fd(steps)
+
+t.mainloop()
