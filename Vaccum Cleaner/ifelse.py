@@ -1,4 +1,4 @@
-
+# is code::blocks th
 biology=90
 math=90
 chem=100
