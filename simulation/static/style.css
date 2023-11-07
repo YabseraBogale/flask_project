@@ -1,6 +1,14 @@
 .env{
 
 	border: 2px solid black;
-	padding: 5px;
+	padding: 100px;
+	margin-left:50%;
+	margin-right:50%;
+	margin-top:20%;
+	
+}
+.robot{
+
+	border: 2px solid black;
 	
 }
