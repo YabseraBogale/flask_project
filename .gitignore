@@ -1,4 +1,5 @@
 /upload/env/
+/simulation/env
 /pig_game/env
 /github_cli_tool/env
 /random_fact/env
