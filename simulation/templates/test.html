@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+   .ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: rgb(41, 66, 190);
+   }
+   body{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+   }
+</style>
+</head>
+<body>
+<div class="ball"></div>
+<script>
+   const ball = document.querySelector('.ball');
+   let y = 0;
+   let direction = 1;
+   let speed = 8;
+   setInterval(() => {
+      y = y + speed * direction;
+      if (y >= window.innerHeight/3 - 50) {
+         direction = -1;
+      }
+      if (y <= 0) {
+         direction = 1;
+      }
+      ball.style.top = y + 'px';
+   }, 20);
+</script>
+</body>
