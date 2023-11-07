@@ -1,14 +1,18 @@
-
+let robot=document.querySelector(".robot")
+let env=document.querySelector(".env")
+let y=0
+let speed=6
+let direction=1
 setInterval(function(){
-	let ele=document.querySelector(".robot")
-	let position= ele.getBoundingClientRect()
-	console.log(position);
-	//ele.style=`margin-left:${position.x-5}px;`
-	if(position.x<position.right){
-		ele.style=`margin-left:${position.left/2+0.5}px;`
-	}
-	else{
-		ele.style=`margin-left:${position.left/2-0.5}px;`
-	}
+	y = y + speed * direction;
+      if (y >= env.innerHeight/3 - 50) {
+         direction = -1;
+      }
+      if (y <= 0) {
+         direction = 1;
+      }
+      robot.style.top = y + '%';
+	
+
 
 },1000);
