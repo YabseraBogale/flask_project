@@ -3,38 +3,37 @@ function setup() {
     createCanvas(400, 400);
 }
 
+function moitionMove(pointX,pointY){
+	return [pointX+10,pointY+10]
+}
 
 
-let movingObject=[200,200,205,205,1]
-
+let direction=1
+let x=200
+let y=200
+let moition=moitionMove(x,y)
 function draw() {
   // put drawing code here
 	background(220);
+	circle(x, y, 20);
+	moveRobot(x,y,direction,moition);
 	
-	// movingObject=[Initail_Point_X,Initail_Point_Y,Step_X,Step_Y,direction]
-	circle(movingObject[0], movingObject[1], 20);
-	//console.log(movingObject[0]);
-	Motion(movingObject,5);
-
 }
 
-function Motion(movingObject,speed){
-		movingObject[2]=movingObject[0]+speed
-		movingObject[3]=movingObject[1]+speed
-		switch(movingObject){
-			case movingObject[0]<=movingObject[2] && movingObject[1]<=movingObject[3]  && movingObject[4]==1:
-				movingObject[0]=movingObject[0]+speed
-				console.log(movingObject[0]);
-				if(movingObject[0]==movingObject[2]){
-					movingObject[4]=-1
-				}
-			case movingObject[0]==movingObject[2] && movingObject[1]<=movingObject[3]  && movingObject[4]==-1:
-				movingObject[1]=movingObject[1]+speed
-				if(movingObject[1]==movingObject[3]){
-					movingObject[4]=1
-					movingObject[0]=movingObject[0]+movingObject[2]
-				}
-			
-		}
-		
+
+function moveRobot(pointX,pointY,direction,speed,movement){
+	switch(arr){
+		case pointX<=movement[0] && pointX<400 && direction==1:
+			pointX=pointX+speed
+			if(pointX==movement[0]){
+				direction=-1
+			}
+		case pointY<=movement[1] && pointY<400 && direction==-1:
+			pointy=pointY+speed
+			if(pointY==movement[1]){
+				direction=1
+			}
+	}
+	
 }
+
