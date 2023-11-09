@@ -8,7 +8,7 @@ function setup() {
 let direction=1;
 let x=200;
 let y=200;
-let speed=5;
+let speed=1;
 let distance=1
 let moitionX=x+10;
 let moitionY=y+10;
@@ -32,14 +32,14 @@ function draw() {
 			direction=1
 			moitionX=moitionX-distance
 		}
-	} else if(x>=moitionX && x>=0 && direction==1){
+	} else if(x>=moitionX && x<=0 && direction==1){
 		x=x-speed
 		distance+=1
 		if(moitionX==x){
 			direction=-1
 			moitionY=moitionY-distance
 		}
-	} else if(y>=moitionY && y>=0 && direction==-1){
+	} else if(y>=moitionY && y<=0 && direction==-1){
 		y=y-speed
 		distance+=1
 		if(y==moitionY){
