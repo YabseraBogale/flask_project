@@ -35,6 +35,7 @@ function draw() {
 			y+=10
 			direction=1
 			if(y>420){
+				alert("Simulation Over")
 				noLoop();
 			}
 		}
