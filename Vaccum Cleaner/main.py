@@ -2,7 +2,7 @@
  Name: Vaccum cleaner
  Author: Yabsera Bogale
 """
-from pprint import pprint
+
 print("Enter \"f\" to Finish")
 q='go'
 lst=[]
@@ -17,7 +17,7 @@ while q!="f":
 		
 print("Finished")
 print("Room Histroy")
-pprint(lst)
+print(lst)
 
 
 
