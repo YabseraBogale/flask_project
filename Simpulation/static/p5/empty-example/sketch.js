@@ -1,6 +1,8 @@
 function setup() {
   // put setup code here
     createCanvas(400, 400);
+	background(0,20,0);
+
 }
 
 
@@ -15,8 +17,10 @@ let moitionY=220;
 
 function draw() {
   // put drawing code here
-  	background(0,20,0);
-  	fill(220);
+
+
+	noStroke(220);
+	fill(220);
 	circle(x, y, 20);
 	console.log(x,y);
 	if(x>=0 && x<400 && direction==1){
