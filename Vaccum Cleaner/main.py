@@ -2,24 +2,27 @@
  Name: Vaccum cleaner
  Author: Yabsera Bogale
 """
+from random import randint
 
-print("Enter \"f\" to Finish")
-q='go'
+
 lst=[]
-while q!="f":
-	q=input("Enter \"d\" for dirty or \"c\" for clean: ")
-	if q=="d":
-		lst.append([q,"cleaned"])
-	elif q=="c":
-		lst.append([q,"passed"])
+
+
+for i in range(1,10):
+	if(randint(1,100)%i==0):
+		lst.append("dirty")
 	else:
-		print("Enter the right format")
-		
-print("Finished")
-print("Room Histroy")
-print(lst)
+		lst.append("cleand")
+
+agent_action=[]
+
+for i in lst:
+	if i=="cleand":
+		agent_action.append("passed")
+	else:
+		agent_action.append("dirty to cleanned")
 
 
-
-
+print("room before",lst)
+print("room after",agent_action)
 
