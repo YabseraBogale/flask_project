@@ -5,6 +5,7 @@
 from random import randint
 
 
+
 lst=[]
 
 
