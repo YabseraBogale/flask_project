@@ -2,7 +2,7 @@ import pandas as pd
 
 import json
 
-df=open('freelance_ethio_messages.json')
+df=open('msgs_dataset.csv')
 
 df=json.load(df)
 
