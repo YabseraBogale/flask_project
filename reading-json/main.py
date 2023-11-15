@@ -4,4 +4,5 @@ import json
 
 df=pd.read_csv('msgs_dataset.csv')
 
-print(df["message"].head())
+for i in range(0,100):
+	print(type(df["message"][i]))
