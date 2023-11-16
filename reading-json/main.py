@@ -16,7 +16,7 @@ df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
 
-for i in range(8259,len(df["message"])):
+for i in range(8260,len(df["message"])):
 	
 	if test.checkAllWith(list_of_stack,df["message"][i])==True:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
