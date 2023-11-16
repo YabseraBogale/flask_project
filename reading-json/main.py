@@ -13,10 +13,11 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
-for i in range(0,len(df["message"])):
+table=Software()
+for i in range(0,10):
 	
 	if df["message"][i].find("#Software_design_and_Development")!=-1:
-		print(df["date"][i])
+		table.insertIntoTable(i,df["message"][i],df["date"][i])
 	
 	if count==100:
 		count=0
