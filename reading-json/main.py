@@ -2,7 +2,10 @@ import pandas as pd
 
 import json
 
-list_of_stack=["mysql","go","python","c++","javascript","js","sql","nodejs","react","vue",""]
+list_of_stack=["mysql","go","python","c++","javascript",
+				"js","sql","nodejs","react","vue","php",
+				"c#",".net","django","flask","reactjs",
+				"larvel","postgres","dart","flutter"]
 
 df=pd.read_csv('msgs_dataset.csv')
 
