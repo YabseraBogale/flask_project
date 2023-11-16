@@ -15,9 +15,12 @@ class Software():
 		return "Done"
 	
 	def checkAllWith(self,lst,message):
+		count=0
 		for i in lst:
-			if message.lower().find(i)!=-1:
-				return True
+			if str(message).lower().find(i)!=-1:
+				count+=1
+				if count==5:
+					return True
 		return False
 			
 	
