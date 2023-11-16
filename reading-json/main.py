@@ -18,7 +18,7 @@ table=Software()
 
 for i in range(8260,len(df["message"])):
 	
-	if test.checkAllWith(list_of_stack,df["message"][i])==True:
+	if table.checkAllWith(list_of_stack,df["message"][i])==True:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
 	
 	if count==100:
