@@ -15,7 +15,7 @@ count=0
 for i in range(0,100):
 	
 	if df["message"][i].find("#Software_design_and_Development")!=-1:
-		print(df["date"])
+		print(df["date"][i])
 	
 	if count==3:
 		count=0
