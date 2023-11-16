@@ -16,7 +16,7 @@ count=0
 table=Software()
 for i in range(0,len(df["message"])):
 	
-	if df["message"][i].find("#Software_design_and_Development")!=-1:
+	if str(df["message"][i]).find("#Software_design_and_Development")!=-1:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
 	
 	if count==100:
