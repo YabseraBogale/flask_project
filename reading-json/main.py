@@ -1,5 +1,5 @@
 import pandas as pd
-
+from time import sleep
 import json
 
 list_of_stack=["mysql","go","python","c++","javascript",
@@ -12,5 +12,10 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 df=pd.read_csv('msgs_dataset.csv')
 count=0
-for i in range(0,100):
-	print(df["message"][i])
+for i in range(0,1000):
+	print(type(df["message"][i]))
+	if count==100:
+		count=0
+		sleep(3)
+	else:
+		count+=1
