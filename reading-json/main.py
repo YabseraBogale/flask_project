@@ -13,7 +13,4 @@ list_of_stack=["mysql","go","python","c++","javascript",
 df=pd.read_csv('msgs_dataset.csv')
 count=0
 for i in range(0,100):
-	if(str(df["message"][i]).find("#Software_design_and_Development")!=-1):
-		count+=1
-print(count)
-		
+	print(df["message"][i])
