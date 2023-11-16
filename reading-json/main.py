@@ -12,12 +12,12 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
-for i in range(0,100):
+for i in range(0,len(df["message"])):
 	
 	if df["message"][i].find("#Software_design_and_Development")!=-1:
 		print(df["date"][i])
 	
-	if count==3:
+	if count==100:
 		count=0
 		sleep(3)
 	else:
