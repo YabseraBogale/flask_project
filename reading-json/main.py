@@ -12,7 +12,7 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 df=pd.read_csv('msgs_dataset.csv')
 count=0
-for i in range(0,1000):
+for i in range(0,len(df["message"])):
 	print(type(df["message"][i]))
 	if count==100:
 		count=0
