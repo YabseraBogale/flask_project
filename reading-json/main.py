@@ -11,12 +11,14 @@ list_of_stack=["mysql","go","python","c++","javascript",
 				"boot","css","bootstrap","tailwind","html"
 				"html5","saas","node"]
 
+
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
-for i in range(0,len(df["message"])):
+
+for i in range(8259,len(df["message"])):
 	
-	if str(df["message"][i]).find("#Software_design_and_Development")!=-1:
+	if test.checkAllWith(list_of_stack,df["message"][i])==True:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
 	
 	if count==100:

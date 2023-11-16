@@ -14,6 +14,13 @@ class Software():
 		self.cursor.commit()
 		return "Done"
 	
+	def checkAllWith(self,lst,message):
+		for i in lst:
+			if message.lower().find(i)!=-1:
+				return True
+		return False
+			
+	
 	def createTable(self):
 		statment="""
 				create table IF NOT EXISTS Software(
