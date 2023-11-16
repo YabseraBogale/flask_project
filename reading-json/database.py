@@ -1,4 +1,5 @@
 import sqlite3
+from time import sleep
 
 
 class Software():
@@ -30,7 +31,13 @@ class Software():
 		self.result=self.pointer.fetchall()
 		for i in self.result:
 			print(i)
+			sleep(3)
 		return "Done"
+		
+	def count(self):
+		self.pointer.execute("select count(*) from Software")
+		self.result=self.pointer.fetchone()
+		return self.result
 	
 	def close(self):
 		self.cursor.close()
