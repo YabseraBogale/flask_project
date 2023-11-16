@@ -1,5 +1,6 @@
 import pandas as pd
 from time import sleep
+from database import Software
 import json
 
 list_of_stack=["mysql","go","python","c++","javascript",
