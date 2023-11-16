@@ -2,4 +2,4 @@ from database import Software
 
 test=Software()
 
-print(test.count())
+print(test.createTable())
