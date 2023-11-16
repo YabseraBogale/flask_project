@@ -15,7 +15,7 @@ class Software():
 	
 	def createTable(self):
 		statment="""
-				create table Software(
+				create table IF NOT EXISTS Software(
 					id int not null primary key,
 					message text not null,
 					date datetime not null
@@ -25,7 +25,7 @@ class Software():
 		self.cursor.commit()
 		return "Done"
 		
-	def seeAll(self)
+	def seeAll(self):
 		self.pointer.execute("select * from Software")
 		self.result=self.pointer.fetchall()
 		for i in self.result:
