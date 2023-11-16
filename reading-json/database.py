@@ -29,10 +29,7 @@ class Software():
 	def seeAll(self):
 		self.pointer.execute("select * from Software")
 		self.result=self.pointer.fetchall()
-		for i in self.result:
-			print(i)
-			sleep(3)
-		return "Done"
+		return self.result
 		
 	def count(self):
 		self.pointer.execute("select count(*) from Software")
