@@ -1,32 +1,30 @@
-// Online C# Editor for free
-// Write, Edit and Run your C# code using C# Online Compiler
-
-using System;
-
-public class HelloWorld
-{
-    public static void Main(string[] args)
+public static void Main(string[] args)
     {
         int number=7;
         int sum=0;
         bool three=true;
-        int[] arr=giveFive(number,sum,three);
+        int[] arr=giveFive(number,out sum,ref three);
         foreach(int i in arr){
-            Console.WriteLine("Number: {i}",i);
+            Console.WriteLine("Number: {0}",i);
         }
     }
     static int[]giveFive(int number,out int sum,ref bool three){
-        int[] array=new int[5];
+        int[] a=new int[5];
         bool stop=false;
         int i=1;
         int k=0;
-        bool isprime=true;
+        
         sum=0;
         while(stop!=true){
             int isnumber=number+i;
+			bool isprime=true;
             if(isnumber==0 || isnumber==1){
-                continue;
-            } else if(isnumber==2){
+                isprime=false;
+				continue;
+            } else if(isnumber%2==0){
+				isprime=false;
+				continue;
+			} else if(isnumber==2){
                 if(k<5){
                     a[k]=isnumber;
                     sum+=isnumber;
@@ -36,7 +34,8 @@ public class HelloWorld
                     }
                 }
             } else if(isnumber%2!=0){
-                for(int j=2;j<(int)Math.Sqrt(isnumber);j++){
+				
+                for(int j=2;j<isnumber;j++){
                     if(isnumber%j==0){
                         isprime=false;
                         break;
@@ -53,10 +52,9 @@ public class HelloWorld
                     }
                 }
             }
-            
+            i+=1;
         }
         three=sum%3==0;
-        return array;
+        return a;
         
     }
-}
