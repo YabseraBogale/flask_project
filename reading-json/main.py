@@ -15,7 +15,7 @@ list_of_job=["backend","frontend","fullstack","full stack",
 			"bot","agile","wordpress","git","github","version control",
 			"mobile","andriod","ios","iphone","application",
 			"data science","ai","machine learning","web","developer",
-			"api","rest","mern","lamp","mean"]
+			"api","rest","mern","lamp","mean","cs","front end"]
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
@@ -25,6 +25,8 @@ for i in range(0,len(df["message"])):
 	if str(df["message"][i]).find("#Software_design_and_Development")!=-1:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
 	elif table.checkAllWith(list_of_stack,df["message"][i])==True:
+		table.insertIntoTable(i,df["message"][i],df["date"][i])
+	elif table.checkAllWith(list_of_job,df["message"][i])==True:
 		table.insertIntoTable(i,df["message"][i],df["date"][i])
 		
 	if count==100:
