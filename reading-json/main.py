@@ -13,7 +13,9 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 list_of_job=["backend","frontend","fullstack","full stack",
 			"bot","agile","wordpress","git","github","version control",
-			"mobile","andriod","ios","iphone","application","data science","AI"]
+			"mobile","andriod","ios","iphone","application",
+			"data science","ai","machine learning","web","developer",
+			"api","rest","mern","lamp","mean"]
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
