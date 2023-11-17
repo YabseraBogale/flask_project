@@ -7,7 +7,13 @@ public class HelloWorld
 {
     public static void Main(string[] args)
     {
-        
+        int number=7;
+        int sum=0;
+        bool three=true;
+        int[] arr=giveFive(number,sum,three);
+        foreach(int i in arr){
+            Console.WriteLine("Number: {i}",i);
+        }
     }
     static int[]giveFive(int number,out int sum,ref bool three){
         int[] array=new int[5];
