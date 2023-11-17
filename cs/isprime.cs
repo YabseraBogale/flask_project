@@ -1,6 +1,6 @@
 public static void Main(string[] args)
     {
-        int number=7;
+        int number=5;
         int sum=0;
         bool three=true;
         int[] arr=giveFive(number,out sum,ref three);
@@ -20,9 +20,11 @@ public static void Main(string[] args)
 			bool isprime=true;
             if(isnumber==0 || isnumber==1){
                 isprime=false;
+                i+=1;
 				continue;
             } else if(isnumber%2==0){
 				isprime=false;
+				i+=1;
 				continue;
 			} else if(isnumber==2){
                 if(k<5){
