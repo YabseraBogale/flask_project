@@ -40,7 +40,8 @@ class Software():
 		self.pointer.execute("select * from Software")
 		self.result=self.pointer.fetchall()
 		return self.result
-		
+	def checkIfItExists(id)
+	
 	def count(self):
 		self.pointer.execute("select count(*) from Software")
 		self.result=self.pointer.fetchone()
