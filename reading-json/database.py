@@ -15,7 +15,7 @@ class Software():
 		self.pointer.execute(statment,(id,message,date))
 		self.cursor.commit()
 		return "Done"
-	
+	# check this if there is better method or not 
 	def checkAllWith(self,lst,message):
 		count=0
 		for i in lst:
