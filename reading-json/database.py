@@ -1,3 +1,5 @@
+# going to rewrite the whole thing in java in the next 5-6 month
+
 import sqlite3
 from time import sleep
 
