@@ -22,8 +22,7 @@ class Software():
 				if count==5:
 					return True
 		return False
-			
-	
+		
 	def createTable(self):
 		statment="""
 				create table IF NOT EXISTS Software(
@@ -40,6 +39,7 @@ class Software():
 		self.pointer.execute("select * from Software")
 		self.result=self.pointer.fetchall()
 		return self.result
+		
 	def checkIfItExists(id):
 		statment="select id from Software where id=?"
 		self.pointer.execute(statment,(id,))
