@@ -3,6 +3,7 @@ from time import sleep
 from database import Software
 import json
 
+
 list_of_stack=["mysql","go","python","c++","javascript",
 				"js","sql","nodejs","react","vue","php",
 				"c#",".net","django","flask","reactjs",
