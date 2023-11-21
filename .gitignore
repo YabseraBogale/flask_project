@@ -1,4 +1,5 @@
 /upload/env/
+/env/
 /reading-json/env
 /reading-json/__pycache__/
 /reading-json/database.db
