@@ -30,8 +30,23 @@ public class Program
     Random number=new Random();
     for(int i=0;i<process.Length;i++){
       process[i]=new Process();
-      process[i].setAll(i.ToString(),numbers[i],numbers[i]*number.Next(numbers[i]));
+      process[i].setAll((i+1).ToString(),numbers[i],numbers[i]*number.Next(numbers[i]));
     }
+    Console.WriteLine("Before Execuation");
+    foreach(Process i in process ){
+        Console.WriteLine("Process-Name: {0}, Arrival-Time: {1}, Burst-Time: {2}",i.getProcessName(),i.getArravelTime(),i.getBurstTime());
+    }
+    for(int i=0;i<process.Length;i++){
+          for(int j=0;j<i;j++){
+              if(process[j].getArravelTime()>process[i].getArravelTime()){
+                Process temp=new Process();
+                temp=process[j];
+                process[j]=process[i];
+                process[i]=temp;
+              } 
+          }
+    }
+    Console.WriteLine("Order of Execuation");
     foreach(Process i in process ){
         Console.WriteLine("Process-Name: {0}, Arrival-Time: {1}, Burst-Time: {2}",i.getProcessName(),i.getArravelTime(),i.getBurstTime());
     }
@@ -52,11 +67,8 @@ public class Program
       }
       return arr;
   }
-  static int[] getTimeSorted(Process[] p){
-      int [] sortedTime=new int[p.Length];
-      
-      return sortedTime;
-  }
+  
+  
    
 }
 
