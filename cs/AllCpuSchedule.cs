@@ -14,6 +14,7 @@ public class Program
     int PositionAtTheSequnce;
     int TimeSlot;
     int StopTime;
+    bool Done=false;
     Random numbers;
     string ProcessName;
     int [] RandomNumbers;
@@ -39,6 +40,10 @@ public class Program
     
     public void SetPositionAtTheSequnce(int PositionAtTheSequnce){
         this.PositionAtTheSequnce=PositionAtTheSequnce;
+    }
+
+    public void SetDone(bool Done){
+        this.Done=Done;
     }
 
     public int[] GivingRepeateRandomNumber(int LengthOfRandomNumber,int MaxRange=10,bool Repeat=false){
@@ -71,6 +76,8 @@ public class Program
     public int GetStartTime(){ return this.StartTime; }
     
     public int GetPositionAtTheSequnce(){ return PositionAtTheSequnce; }
+
+    public bool GetDone(){ return this.Done; }
 
     public string GetProcessName(){ return this.ProcessName; }
 
