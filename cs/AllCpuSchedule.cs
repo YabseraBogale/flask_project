@@ -76,39 +76,14 @@ public class Program
     }
     public void SeeArrivalAndBurstTime(Process[] P){
       foreach(Process p in P){
-          p.SeeArrivalAndBurstTime();
+          p.SeeArrivalAndBurstTime(p);
       }      
     }
     
-     
   }
 
-  void SortBasedOnArrivalTime(ref Process[] p){
-    for(int i=0;i<p.Length;i++){
-        for(int j=0;j<i;i++){
-            if(p[i].GetArrivalTime()<p[j].GetArrivalTime()){
-                Process temp=new Process();
-                temp=p[j];
-                p[j]=p[i];
-                p[i]=temp;
-            }
-        }
-    }
-  }
 
-  void SortBasedOnPriority(ref Process[] p){
-    for(int i=0;i<p.Length;i++){
-        for(int j=0;j<i;i++){
-            if(p[i].GetPriority()<p[j].GetPriority()){
-                Process temp=new Process();
-                temp=p[j];
-                p[j]=p[i];
-                p[i]=temp;
-            }
-        }
-    }
-  }
-
+  
 public static int[] GetRepeateRandomNumber(int LengthOfRandomNumber,bool Repeat=false,int MaxRange=10){
       int[] RandomNumbers=new int[LengthOfRandomNumber];
       Random numbers=new Random();
@@ -135,13 +110,31 @@ public static int[] GetRepeateRandomNumber(int LengthOfRandomNumber,bool Repeat=
     for(int i=0;i<NumberOfProcess;i++){
         p[i]= new Process(i,RandomArrivalTime[i],0,RandomBurstTime[i],0,0);
     }
+    Console.WriteLine("Generated Random Process");
     temp.SeeArrivalAndBurstTime(p);
+    Console.WriteLine("End of Generated Random Process");
     return p;
   }
-
+  public static void SortBasedOnArrivalTime(ref Process[] p){
+    for(int i=0;i<p.Length;i++){
+        for(int j=0;j<i;j++){
+            if(p[j].GetArrivalTime()>p[i].GetArrivalTime()){
+              Process k=new Process();
+              k=p[j];
+              p[j]=p[i];
+              p[i]=k;
+            }
+        }
+    }
+  }
   public static void Main()
   {
-    Process[] p=GetRandomMadeProcess(5,true);
+    Process temp=new Process();
+    Process[] p=GetRandomMadeProcess(5);
+    SortBasedOnArrivalTime(ref p);
+    Console.WriteLine("\nSeeing After Sorting");
+    temp.SeeArrivalAndBurstTime(p);
+  
     
   }
 
