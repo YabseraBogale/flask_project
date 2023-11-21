@@ -17,6 +17,10 @@ public class Program
     string ProcessName;
     int [] RandomNumbers;
     
+    public Process(){
+
+    }
+
     Process(string ProcessName,int ArrivalTime,int StartTime,int BurstTime,int Priority=0,int TimeSlot=0,int StopTime=0){
         this.ArrivalTime=ArrivalTime;
         this.BurstTime=BurstTime;
@@ -68,8 +72,16 @@ public class Program
     public int GetRemain(){ return this.Remain; }
   }
 
-  static void SortArrivalTime(out Process p[]){
-        
+  void SortBasedOnArrivalTime(ref Process[] p){
+    for(int i=0;i<p.Length;i++){
+        for(int j=0;j<i;i++){
+            if(p[i].GetArrivalTime()<p[j].GetArrivalTime()){
+                Process temp=new Process();
+                p[j]=p[i];
+                p[i]=temp;
+            }
+        }
+    }
   }
 
   public static void Main()
