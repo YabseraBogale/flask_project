@@ -68,15 +68,31 @@ public class Program
   
     public int GetRemain(){ return this.Remain; }
 
+    public void SeeBaseOnPriority(){
+        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {2}, Priority-Value: {3}",this.ProcessName,this.ArrivalTime,this.BurstTime,this.Priority);    
+    }
+
+    public void SeeBaseOnPriority(Process P){
+        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {2}, Priority-Value: {3}",P.GetProcessName(),P.GetArrivalTime(),P.GetBurstTime(),P.GetPriority());    
+    }
+
     public void SeeArrivalAndBurstTime(){
-        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {1}",this.ProcessName,this.ArrivalTime,this.BurstTime);    
+        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {2}",this.ProcessName,this.ArrivalTime,this.BurstTime);    
     }
+
     public void SeeArrivalAndBurstTime(Process P){
-        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {1}",P.GetProcessName(),P.GetArrivalTime(),P.GetBurstTime());    
+        Console.WriteLine("Process Name: {0}, Arrival-Time: {1}, Burst-Time: {2}",P.GetProcessName(),P.GetArrivalTime(),P.GetBurstTime());    
     }
+
     public void SeeArrivalAndBurstTime(Process[] P){
       foreach(Process p in P){
           p.SeeArrivalAndBurstTime(p);
+      }      
+    }
+
+    public void SeeBaseOnPriority(Process[] P){
+      foreach(Process p in P){
+          p.SeeBaseOnPriority(p);
       }      
     }
     
