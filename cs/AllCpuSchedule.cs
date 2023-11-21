@@ -7,29 +7,28 @@ public class Program
   class Process{
     int ArrivalTime;
     int WaitingTime;
+    int BurstTime;
     int StartTime;
     int Priority;
     int Remain;
-    int[] InteraptionTime;
-    int InteraptionTimeCount;
+    int TimeSlot;
+    int StopTime;
     Random numbers;
     string ProcessName;
-    int BurstTime;
     int [] RandomNumbers;
-    Process(int ArrivalTime,int StartTime,int BurstTime,string ProcessName){
+    
+    Process(int ArrivalTime,int StartTime,int BurstTime,string ProcessName,int Priority=0,int TimeSlot=0){
         this.ArrivalTime=ArrivalTime;
         this.BurstTime=BurstTime;
         this.StartTime=StartTime;
         this.WaitingTime=StartTime-ArrivalTime;
         this.ProcessName=ProcessName;
+        this.Priority=Priority;
+        this.TimeSlot=TimeSlot;
     }
 
-    public void SetInteraptionTime(params int[] InteraptionTime){
-        this.InteraptionTime=new int[InteraptionTime.Length];
-        this.InteraptionTime=InteraptionTime;
-        this.InteraptionTimeCount=InteraptionTime.Length;
-    }
-
+    
+    
     public int[] GivingRepeateRandomNumber(int LengthOfRandomNumber,int MaxRange=10,bool Repeat=false){
       this.RandomNumbers=new int[LengthOfRandomNumber];
       for(int i=0;i<LengthOfRandomNumber;i++){
@@ -46,6 +45,7 @@ public class Program
       }
       return this.RandomNumbers;
     }
+
     
     public int GetArrivalTime(){ return this.ArrivalTime; }
     
@@ -54,6 +54,8 @@ public class Program
     public int GetStartTime(){ return this.StartTime; }
     
     public string GetProcessName(){ return this.ProcessName; }
+
+    public int GetPriority(){ return this.Priority; }
   
   }
 
