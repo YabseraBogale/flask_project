@@ -32,6 +32,7 @@ public class Program
         this.StopTime=StopTime;
     }
 
+
     public void SetStopTime(int StopTime){
         this.StopTime=StopTime;
     }
@@ -143,17 +144,42 @@ public static int[] GetRepeateRandomNumber(int LengthOfRandomNumber,bool Repeat=
         }
     }
   }
+  public static void SortBasedOnBurstTime(ref Process[] p){
+    for(int i=0;i<p.Length;i++){
+        for(int j=0;j<i;j++){
+            if(p[j].GetBurstTime()>p[i].GetBurstTime()){
+              Process k=new Process();
+              k=p[j];
+              p[j]=p[i];
+              p[i]=k;
+            }
+        }
+    }
+    Process temp=new Process();
+    Console.WriteLine("\nSort Based on Burst Time");
+    temp.SeeArrivalAndBurstTime(p);
+  }
 
   //Check it
   public static void FirstComeFirstServe(ref Process[] P){
     SortBasedOnArrivalTime(ref P);
   }
 
+  public static void NonPreemptiveShorestJobFirst(ref Process[] P){
+    SortBasedOnBurstTime(ref P);
+  }
+
+  public static void PreemptiveShorestJobFirst(ref Process[] P){
+    
+    
+  }
+
   public static void Main()
   {
     Process temp=new Process();
     Process[] p=GetRandomMadeProcess(5);
-    
+    SortBasedOnArrivalTime(ref p);
+    temp.SeeArrivalAndBurstTime(p);
     
   }
 
