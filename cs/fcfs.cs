@@ -24,15 +24,32 @@ public class Program
     }
   }
   public static void main(){
-    Console.Write("Enter Number of Process: ");
-    int NumberOfProcess=int.Parse(Console.ReadLine());
-     Process[] process= new Process[NumberOfProcess];
-      Random numbers=new Random();
-      for(int i=0;i<NumberOfProcess;i++){
-          process[i]=new Process();
-          process[i].setAll((i+1).ToString(),numbers.Next(30),numbers.Next(10));
-      }
     
+    int[] numbers=GiveMeNoRepateRandomNumber(5,10);
+    Process[] process= new Process[numbers.Length];
+    Random number=new Random();
+    for(int i=0;i<process.Length;i++){
+      process[i]=new Process();
+      process[i].setAll(i.ToString(),numbers[i],numbers[i]*number.Next(numbers[i]));
+    }
+  }
+  static int[] GiveMeNoRepateRandomNumber(int length,int maxRange){
+      int[] arr =new int[length];
+      Random numbers=new Random();
+      for(int i=0;i<length;i++){
+          int number=numbers.Next(maxRange);
+          if(arr.Contains(number)==true){
+              i-=1;
+          }else{
+            arr[i]=number;
+          }
+      }
+      return arr;
+  }
+  static int[] getTimeSorted(Process[] p){
+      int [] sortedTime=new int[p.Length];
+      
+      return sortedTime;
   }
    
 }
