@@ -11,6 +11,7 @@ public class Program
     int StartTime;
     int Priority;
     int Remain;
+    int PositionAtTheSequnce;
     int TimeSlot;
     int StopTime;
     Random numbers;
@@ -36,6 +37,10 @@ public class Program
         this.StopTime=StopTime;
     }
     
+    public void SetPositionAtTheSequnce(int PositionAtTheSequnce){
+        this.PositionAtTheSequnce=PositionAtTheSequnce;
+    }
+
     public int[] GivingRepeateRandomNumber(int LengthOfRandomNumber,int MaxRange=10,bool Repeat=false){
       this.RandomNumbers=new int[LengthOfRandomNumber];
       for(int i=0;i<LengthOfRandomNumber;i++){
@@ -65,6 +70,8 @@ public class Program
     
     public int GetStartTime(){ return this.StartTime; }
     
+    public int GetPositionAtTheSequnce(){ return PositionAtTheSequnce; }
+
     public string GetProcessName(){ return this.ProcessName; }
 
     public int GetPriority(){ return this.Priority; }
@@ -72,10 +79,23 @@ public class Program
     public int GetRemain(){ return this.Remain; }
   }
 
-  
+  void SortBasedOnArrivalTime(ref Process[] p){
+    for(int i=0;i<p.Length;i++){
+        for(int j=0;j<i;i++){
+            if(p[i].GetArrivalTime()<p[j].GetArrivalTime()){
+                Process temp=new Process();
+                temp=p[j];
+                p[j]=p[i];
+                p[i]=temp;
+            }
+        }
+    }
+  }
+
+
   public static void Main()
   {
-  
+    
   }
 
 
