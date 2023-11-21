@@ -8,11 +8,12 @@ public class Program
     int ArrivalTime;
     int WaitingTime;
     int StartTime;
+    int Priority;
     int Remain;
     Random numbers;
     string ProcessName;
     int BurstTime;
-    int [] RandomNonNumbers;
+    int [] RandomNumbers;
     Process(int ArrivalTime,int StartTime,int BurstTime,string ProcessName){
         this.ArrivalTime=ArrivalTime;
         this.BurstTime=BurstTime;
@@ -20,17 +21,21 @@ public class Program
         this.WaitingTime=StartTime-ArrivalTime;
         this.ProcessName=ProcessName;
     }
-    public int[] GivingNonRepeateRandomNumber(int LengthOfRandomNumber,int MaxRange=10){
-      this.RandomNonNumbers=new int[LengthOfRandomNumber];
+    public int[] GivingRepeateRandomNumber(int LengthOfRandomNumber,int MaxRange=10,bool Repeat=false){
+      this.RandomNumbers=new int[LengthOfRandomNumber];
       for(int i=0;i<LengthOfRandomNumber;i++){
           int number=this.numbers.Next(MaxRange);
-          if(this.RandomNonNumbers.Contains(number)==false){
-              this.RandomNonNumbers[i]=number;
+          if(Repeat==false){
+              if(this.RandomNumbers.Contains(number)==false){
+                this.RandomNumbers[i]=number;
+              } else{
+                i-=1;
+              }
           } else{
-              i-=1;
+            this.RandomNumbers[i]=number;
           }
       }
-      return this.RandomNonNumbers;
+      return this.RandomNumbers;
     }
     public int GetArrivalTime(){ return this.ArrivalTime; }
     public int GetWaitingTime(){ return this.WaitingTime; }
