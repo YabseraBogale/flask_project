@@ -143,14 +143,17 @@ public static int[] GetRepeateRandomNumber(int LengthOfRandomNumber,bool Repeat=
         }
     }
   }
+
+  //Check it
+  public static void FirstComeFirstServe(ref Process[] P){
+    SortBasedOnArrivalTime(ref P);
+  }
+
   public static void Main()
   {
     Process temp=new Process();
     Process[] p=GetRandomMadeProcess(5);
-    SortBasedOnArrivalTime(ref p);
-    Console.WriteLine("\nSeeing After Sorting");
-    temp.SeeArrivalAndBurstTime(p);
-  
+    
     
   }
 
