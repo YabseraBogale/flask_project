@@ -24,15 +24,16 @@ public class Program
     }
   }
   public static void main(){
-      Process[] processing=new Process[5];
-      Random number=new Random();
-      processing[0].setAll("p1",5,7);
-      processing[1].setAll("p2",3,5);
-      processing[2].setAll("p3",4,3);
-      processing[3].setAll("p1",2,4);
-      foreach(Process i in processing ){
-          Console.WriteLine(i.getProcessName()+' '+i.getArravelTime()+ i.getBurstTime());
+    Console.Write("Enter Number of Process: ");
+    int NumberOfProcess=int.Parse(Console.ReadLine());
+     Process[] process= new Process[NumberOfProcess];
+      Random numbers=new Random();
+      for(int i=0;i<NumberOfProcess;i++){
+          process[i]=new Process();
+          process[i].setAll((i+1).ToString(),numbers.Next(30),numbers.Next(10));
       }
+    
   }
+   
 }
 
