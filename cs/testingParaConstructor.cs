@@ -8,6 +8,10 @@ public class Program
       int a;
       int b;
       public Hello(){ }
+      public Hello(int a=10,int b=10){
+          this.a=a;
+          this.b=b;
+      }
       public Hello(int a=10){
         this.a=a;
       }
