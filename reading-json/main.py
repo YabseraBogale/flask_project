@@ -15,7 +15,7 @@ list_of_stack=["mysql","go","python","c++","javascript",
 
 list_of_job=["backend","frontend","fullstack","full stack",
 			"bot","agile","wordpress","git","github","version control",
-			"mobile","andriod","ios","iphone","application",
+			"mobile","andriod","ios","iphone","application","stack",
 			"data science","ai","machine learning","web","developer",
 			"api","rest","mern","lamp","mean","cs","front end"]
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
