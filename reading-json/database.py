@@ -53,6 +53,9 @@ class Software():
 		self.result=self.pointer.fetchone()
 		return self.result
 	
+	def SeeInMessage(self,ToFindM):
+		statement="select from message from software where message=?"
+		
 	def close(self):
 		self.cursor.close()
 		return "closed"	
