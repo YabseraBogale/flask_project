@@ -3,6 +3,7 @@
 /reading-json/env
 /reading-json/__pycache__/
 /reading-json/database.db
+/reading-json/freelance-data.db
 /reading-json/freelance_ethio_messages.json
 /reading-json/msgs_dataset.csv
 /Simpulation/env
