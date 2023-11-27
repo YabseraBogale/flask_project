@@ -1,5 +1,6 @@
 from database import Software
 
 test=Software()
-
-print(test.createTable())
+path='freelance-data.db'
+print(test.ConnectToDatabase(path))
+#print(test.createTable())

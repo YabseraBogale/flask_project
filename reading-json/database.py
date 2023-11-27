@@ -12,6 +12,7 @@ class Software():
 	def ConnectToDatabase(self,path):
 		self.cursor=sqlite3.Connection(path)
 		self.pointer=self.cursor.cursor()
+		return "Connected"
 	
 	def insertIntoTable(self,id,message,date):
 		statment="insert into Software(id,message,date) values(?,?,?)"
