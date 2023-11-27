@@ -47,7 +47,7 @@ class Software():
 		return self.result
 		
 	def checkIfItExists(self,id):
-		statment="select id from Software where id=?"
+		statment="select * from Software where id=?"
 		self.pointer.execute(statment,(id,))
 		self.result=self.pointer.fetchone()
 		return self.result

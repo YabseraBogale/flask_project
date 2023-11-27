@@ -1,10 +1,9 @@
 from database import Software
-
+from random import randint
 test=Software()
-path='./freelance-data.db'
-print(test.ConnectToDatabase(path))
-#print(test.createTable())
-lst=test.SeeInMessage('Verified')
 
-for i in range(0,10):
-    print(lst[i])
+lst=test.SeeInMessage("Verified")
+
+for i in range(0,100):
+    print(lst[i].split("__________________")[1].split("[Verified")[0].rstrip())
+    
