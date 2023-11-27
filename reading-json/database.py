@@ -58,10 +58,14 @@ class Software():
 		return self.result
 	
 	def SeeInMessage(self,ToFindMessage):
-		statement="select from message from software where message='%?%'"
-		self.pointer.execute(statement,(ToFindMessage,))
-		self.result=self.pointer.fetchone()
-		return self.result
+		statement="select message from software"
+		self.pointer.execute(statement)
+		self.result=self.pointer.fetchall()
+		self.lst=[]
+		for i in self.result:
+			if i[0].find(ToFindMessage)!=-1:
+				self.lst.append(i[0])
+		return self.lst
 	def close(self):
 		self.cursor.close()
 		return "closed"	
