@@ -42,7 +42,7 @@ class Software():
 		self.result=self.pointer.fetchall()
 		return self.result
 		
-	def checkIfItExists(id):
+	def checkIfItExists(self,id):
 		statment="select id from Software where id=?"
 		self.pointer.execute(statment,(id,))
 		self.result=self.pointer.fetchone()
@@ -56,7 +56,8 @@ class Software():
 	def SeeInMessage(self,ToFindMessage):
 		statement="select from message from software where message='%?%'"
 		self.pointer.execute(statement,(ToFindMessage,))
-
+		self.result=self.pointer.fetchone()
+		return self.result
 	def close(self):
 		self.cursor.close()
 		return "closed"	
