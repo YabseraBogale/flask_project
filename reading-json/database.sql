@@ -9,6 +9,5 @@ create table Compaines(
 	
 	NumberOfRequestMade int null,
 	id int not null,
-	CompanyName varchar(30) not null,
-	
+	CompanyName varchar(30) not null	
 );
