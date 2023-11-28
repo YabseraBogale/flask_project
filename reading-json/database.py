@@ -73,13 +73,18 @@ class Software():
 		self.result=self.pointer.fetchone()
 		return self.result
 	
-	def count(self):
+	def countSotware(self):
 		self.pointer.execute("select count(*) from Software")
+		self.result=self.pointer.fetchone()
+		return self.result
+
+	def countCompaines(self):
+		self.pointer.execute("select count(*) from Compaines")
 		self.result=self.pointer.fetchone()
 		return self.result
 	
 	def InsertCompaines(self,Name,Count):
-		statment="inert into Compaines(Name,count) values (?,?)"
+		statment="insert into Compaines(CompanyName, NumberOfRequestMade) values (?,?)"
 		self.pointer.execute(statment,(Name,Count))
 		self.cursor.commit()
 		return "Done"
