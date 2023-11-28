@@ -28,7 +28,20 @@ class Software():
 				if count==5:
 					return True
 		return False
-		
+	
+	def DropSoftWareTable(self):
+		statement="drop table Software"
+		self.pointer.execute(statement)
+		self.cursor.commit()
+		return "Dropped Software Table"
+	
+	def DropCompainesTable(self):
+		statement="drop table Compaines"
+		self.pointer.execute(statement)
+		self.cursor.commit()
+		return "Dropped Compaines Table"
+	
+
 	def createTable(self):
 		statment="""
 				create table IF NOT EXISTS Software(
@@ -41,8 +54,7 @@ class Software():
 		self.cursor.commit()
 		statment="""
 				create table IF NOT EXISTS Compaines(
-					NumberOfRequestMade int null,
-					id int not null,
+					NumberOfRequestMade int not null,
 					CompanyName varchar(30) not null	
 				);
 				"""
@@ -66,6 +78,7 @@ class Software():
 		self.result=self.pointer.fetchone()
 		return self.result
 	
+
 	def SeeInMessage(self,ToFindMessage):
 		statement="select message from software"
 		self.pointer.execute(statement)

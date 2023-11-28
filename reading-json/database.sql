@@ -6,7 +6,7 @@ create table Software(
 
 
 create table Compaines(
-	NumberOfRequestMade int null,
+	NumberOfRequestMade int not null,
 	id int not null,
 	CompanyName varchar(30) not null	
 );
