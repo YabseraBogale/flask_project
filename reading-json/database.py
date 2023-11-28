@@ -39,6 +39,15 @@ class Software():
 				"""
 		self.pointer.execute(statment)
 		self.cursor.commit()
+		statment="""
+				create table IF NOT EXISTS Compaines(
+					NumberOfRequestMade int null,
+					id int not null,
+					CompanyName varchar(30) not null	
+				);
+				"""
+		self.pointer.execute(statment)
+		self.cursor.commit()
 		return "Done"
 		
 	def seeAll(self):
