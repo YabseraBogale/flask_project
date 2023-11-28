@@ -100,12 +100,6 @@ class Software():
 				self.lst.append(i[0])
 		return self.lst
 	
-	def GiveMeRandomCompanyName(self):
-		statement="select * from Compaines where CompanyName=?;"
-		self.pointer.execute(statement,(randint(1,76)))
-		self.result=self.pointer.fetchone()
-		return self.result
-
 	def close(self):
 		self.cursor.close()
 		return "closed"	
