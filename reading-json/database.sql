@@ -3,3 +3,10 @@ create table Software(
 	message text not null,
 	date datetime not null
 );
+
+
+create table Compaines(
+
+	
+
+);
