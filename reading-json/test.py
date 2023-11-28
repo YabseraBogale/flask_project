@@ -1,7 +1,6 @@
 from database import Software
 from random import randint
 test=Software()
-test.createTable()
 
 
 """

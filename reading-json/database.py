@@ -78,6 +78,11 @@ class Software():
 		self.result=self.pointer.fetchone()
 		return self.result
 	
+	def InsertCompaines(self,Name,Count):
+		statment="inert into Compaines(Name,count) values (?,?)"
+		self.pointer.execute(statment,(Name,Count))
+		self.cursor.commit()
+		return "Done"
 
 	def SeeInMessage(self,ToFindMessage):
 		statement="select message from software"
