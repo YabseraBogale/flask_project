@@ -5,5 +5,5 @@ test=Software()
 lst=test.SeeInMessage("Verified")
 
 for i in range(0,100):
-    print(lst[i].split("__________________")[1].split("[Verified")[0].rstrip())
+    print(lst[i].split("__________________")[1].split("[Verified")[0].strip())
     
