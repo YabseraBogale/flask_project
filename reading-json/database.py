@@ -1,6 +1,7 @@
 # going to rewrite the whole thing in java in the next 5-6 month
 
 import sqlite3
+from random import randint
 from time import sleep
 
 
@@ -98,6 +99,13 @@ class Software():
 			if i[0].find(ToFindMessage)!=-1:
 				self.lst.append(i[0])
 		return self.lst
+	
+	def GiveMeRandomCompanyName(self):
+		statement="select * from Compaines where CompanyName=?;"
+		self.pointer.execute(statement,(randint(1,76)))
+		self.result=self.pointer.fetchone()
+		return self.result
+
 	def close(self):
 		self.cursor.close()
 		return "closed"	
