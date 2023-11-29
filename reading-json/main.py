@@ -31,7 +31,7 @@ for i in range(0,len(df["message"])):
         else:
             Compaine[name]=1
             count+=1
-    if count==5:
+    if count==100:
         break
 
 print(Compaine)
