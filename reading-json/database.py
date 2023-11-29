@@ -37,12 +37,17 @@ class Software():
 		return "Dropped Software Table"
 	
 	def DropCompainesTable(self):
-		statement="drop table Compaines"
+		statement="drop table AllCompaines"
 		self.pointer.execute(statement)
 		self.cursor.commit()
 		return "Dropped Compaines Table"
 	
-
+	def DropErrTable(self):
+		statement="drop table Err"
+		self.pointer.execute(statement)
+		self.cursor.commit()
+		return "Dropped Compaines Table"
+	
 	def createTable(self):
 		statment="""
 				create table IF NOT EXISTS Software(
