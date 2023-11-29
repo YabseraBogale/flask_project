@@ -3,7 +3,7 @@ from time import sleep
 from pprint import pprint
 from database import Software
 import json
-
+import os
 
 
 list_of_stack=["mysql","go","python","c++","javascript",
@@ -33,7 +33,18 @@ for i in range(0,len(df["message"])):
             Compaine[name]=1
             count+=1
     if count==100:
-        break
+        print("At index",i)
+        count=0
+        sleep(3)
 
-pprint(Compaine)
-
+os.system("clear")
+print("Inserting to Database")
+count=0
+for Name,Request in Compaine.items():
+    table.InsertCompaines(Name,Request)
+    if count==100:
+        print("At index",list(Compaine.keys()).index(Name))
+        count=0
+        sleep(3)
+    else:
+        count+=1
