@@ -54,7 +54,7 @@ class Software():
 		self.pointer.execute(statment)
 		self.cursor.commit()
 		statment="""
-				create table IF NOT EXISTS Compaines(
+				create table IF NOT EXISTS AllCompaines(
 					NumberOfRequestMade int not null,
 					CompanyName varchar(30) not null	
 				);

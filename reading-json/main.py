@@ -21,20 +21,18 @@ list_of_job=["backend","frontend","fullstack","full stack",
 df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
-
+Compaine={}
 for i in range(0,len(df["message"])):
-	
-	if str(df["message"][i]).find("#Software_design_and_Development")!=-1:
-		table.insertIntoTable(i,df["message"][i],df["date"][i])
-	elif table.checkAllWith(list_of_stack,df["message"][i])==True:
-		table.insertIntoTable(i,df["message"][i],df["date"][i])
-	elif table.checkAllWith(list_of_job,df["message"][i])==True:
-		table.insertIntoTable(i,df["message"][i],df["date"][i])
-		
-	if count==100:
-		count=0
-		print(f"Insert up to {i}")
-		sleep(3)
-	else:
-		count+=1
+    if str(df["message"][i]).find("[Verified")!=-1:
+        name=str(df["message"][i]).split("__________________")[1].split("[Verified")[0].strip()
+        if name not in Compaine:
+            Compaine[name]=1
+            count+=1
+        else:
+            Compaine[name]=1
+            count+=1
+    if count==5:
+        break
+
+print(Compaine)
 
