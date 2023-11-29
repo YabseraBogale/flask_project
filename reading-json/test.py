@@ -4,4 +4,4 @@ from pprint import pprint
 test=Software()
 
 
-
+test.DropCompainesTable()
