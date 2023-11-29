@@ -23,10 +23,15 @@ df=pd.read_csv('msgs_dataset.csv',low_memory=False)
 count=0
 table=Software()
 Compaine={}
+
+
 for i in range(0,len(df["message"])):
     try:
         if str(df["message"][i]).find("[Verified")!=-1:
-            name=str(df["message"][i]).split("__________________")[1].split("[Verified")[0].strip()
+            if(str(df["message"][i]).find("______")!=-1):
+                name=str(df["message"][i]).split("______")[1].split("[Verified")[0].strip()
+            else:
+                name=str(df["message"][i]).split("__________________")[1].split("[Verified")[0].strip()
             if name not in Compaine:
                 Compaine[name]=1
                 count+=1
@@ -38,6 +43,7 @@ for i in range(0,len(df["message"])):
             count=0
             sleep(3)
     except Exception:
+        print(i)
         print(df["message"][i])
 
 os.system("clear")
