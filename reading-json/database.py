@@ -85,7 +85,7 @@ class Software():
 		return self.result
 	
 	def InsertCompaines(self,Name,Count):
-		statment="insert into Compaines(CompanyName, NumberOfRequestMade) values (?,?)"
+		statment="insert into AllCompaines(CompanyName, NumberOfRequestMade) values (?,?)"
 		self.pointer.execute(statment,(Name,Count))
 		self.cursor.commit()
 		return "Done"

@@ -46,7 +46,7 @@ for i in range(0,len(df["message"])):
         print(i)
         print(df["message"][i])
 
-os.system("clear")
+
 print("Inserting to Database")
 count=0
 for Name,Request in Compaine.items():
