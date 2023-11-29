@@ -4,4 +4,7 @@ from pprint import pprint
 test=Software()
 
 
-test.DropCompainesTable()
+c={"name":5}
+
+for i,j in c.items():
+    print(i,j)

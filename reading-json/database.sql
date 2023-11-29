@@ -7,6 +7,5 @@ create table Software(
 
 create table AllCompaines(
 	NumberOfRequestMade int not null,
-	CompanyName varchar(30) not null,
-	date datetime not null	
+	CompanyName varchar(30) not null,	
 );
