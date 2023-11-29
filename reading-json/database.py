@@ -61,6 +61,14 @@ class Software():
 				"""
 		self.pointer.execute(statment)
 		self.cursor.commit()
+		statment="""
+					create table IF NOT EXISTS Err(
+						indexOfMessage int not null,
+						message text not null
+					);
+				"""
+		self.pointer.execute(statment)
+		self.cursor.commit()
 		return "Done"
 		
 	def seeAll(self):
@@ -84,6 +92,11 @@ class Software():
 		self.result=self.pointer.fetchone()
 		return self.result
 	
+	def InsertIntoErr(self,Index,Message):
+		statment="insert into Err(indexOfMessage,message)"
+		self.pointer.execute(statment,(Index,Message))
+		self.cursor.commit()
+
 	def InsertCompaines(self,Name,Count):
 		statment="insert into AllCompaines(CompanyName, NumberOfRequestMade) values (?,?)"
 		self.pointer.execute(statment,(Name,Count))

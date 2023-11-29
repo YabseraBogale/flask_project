@@ -43,8 +43,7 @@ for i in range(0,len(df["message"])):
             count=0
             sleep(3)
     except Exception:
-        print(i)
-        print(df["message"][i])
+        table.InsertIntoErr(i,df["message"][i])
 
 
 print("Inserting to Database")

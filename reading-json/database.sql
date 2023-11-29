@@ -4,6 +4,10 @@ create table Software(
 	date datetime not null
 );
 
+create table Err(
+	indexOfMessage int not null,
+	message text not null
+);
 
 create table AllCompaines(
 	NumberOfRequestMade int not null,
