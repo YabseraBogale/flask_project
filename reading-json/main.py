@@ -1,5 +1,6 @@
 import pandas as pd
 from time import sleep
+from pprint import pprint
 from database import Software
 import json
 
@@ -34,5 +35,5 @@ for i in range(0,len(df["message"])):
     if count==100:
         break
 
-print(Compaine)
+pprint(Compaine)
 
