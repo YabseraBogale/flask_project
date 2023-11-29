@@ -93,7 +93,7 @@ class Software():
 		return self.result
 	
 	def InsertIntoErr(self,Index,Message):
-		statment="insert into Err(indexOfMessage,message)"
+		statment="insert into Err(indexOfMessage,message) values(?,?)"
 		self.pointer.execute(statment,(Index,Message))
 		self.cursor.commit()
 
