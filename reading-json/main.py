@@ -32,7 +32,7 @@ for i in range(0,len(df["message"])):
         elif(str(df["message"][i]).find("__________________")!=-1):
             name=str(df["message"][i]).split("__________________")[1].split("[Verified")[0].strip()
         else:
-            table.InsertIntoErr(i,df["message"][i])
+            table.InsertIntoErr(i,str(df["message"][i]))
         if name not in Compaine:
             Compaine[name]=1
             count+=1
