@@ -30,7 +30,7 @@ count=0
 table=Software()
 Compaine={}
 
-
+# maybe make the databse accept with verified only
 for i in range(0,len(df["message"])):
     if str(df["message"][i]).find("[Verified")!=-1:
         if(str(df["message"][i]).find("______")!=-1):
