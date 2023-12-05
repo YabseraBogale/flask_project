@@ -34,16 +34,28 @@ class Database():
         for i in self.result:
             print(i)
 
-    def makeDatabase(self):
-        statment="""
-                    create table Compaine(
-	                    id int not null primary key,
-	                    numberOfRequest int not null,
-	                    listOfStack json not null
-                    );
-                """
-        self.pointer.execute(statment)
+    def InsertIntoCompainTable(self,id,numberOfRequest,listOfStack):
+        statment="insert into Compaine(id,numberOfRequest,listOfStack) values(?,?,?)"
+        self.pointer.execute(statment,(id,numberOfRequest,listOfStack))
         self.cursor.commit()
+        return "done"
+
+    def DropTableSoftware(self):
+        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
+        if sure=='Y':
+            statement="drop table Software"
+            self.pointer.execute(statement)
+            self.cursor.commit()
+            return "done"
+        return "Not deleted"
+    def DropTableCompaine(self):
+        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
+        if sure=='Y':
+            statement="drop table Compaine"
+            self.pointer.execute(statement)
+            self.cursor.commit()
+            return "done"
+        return "Not deleted"
 
     def CheckInMessage(self,message):
         statement=f"select message from Software"
