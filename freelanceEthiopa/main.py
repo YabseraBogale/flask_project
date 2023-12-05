@@ -1,6 +1,25 @@
 from pprint import pprint
 from database import Database,StackOfTechnology
 
+def StackOfCompanyUpDate(msg,CompanyStack,ListOfStack):
+    Company=CompanyStack.copy()
+    for i in ListOfStack:
+        if(msg.count(i)!=0 and i not in Company):
+            Company[i]=1
+        elif(msg.count(i)!=0 and i in Company):
+            Company[i]+=1
+    return Company
+
+def StackOfCompany(lst,msg):
+    Company={}
+    for i in lst:
+        if(msg.count(i)!=0 and i not in Company):
+            Company[i]=msg.count(i)
+        elif(msg.count(i)!=0 and i in Company):
+            Company[i]+=msg.count(i)
+    return Company
+
+
 def ListSearch(lst):
     name=''
     for i in lst:
@@ -11,7 +30,11 @@ def ListSearch(lst):
             break
     return name
 
-msg=Database().GetAllSoftware()
+
+Data={}
+test=Database()
+stack=StackOfTechnology().GetAllName()
+msg=test.GetAllSoftware()
 
 for i in msg:
     try:

@@ -42,6 +42,18 @@ class Database():
         self.cursor.commit()
         return "done"
 
+    def MakeData(self):
+        statment="""
+                create table Company(
+	                id int not null primary key,
+	                nameOfCompany varchar(30) not null,
+	                numberOfRequest int not null,
+	                listOfStack text not null
+                );
+                """
+        self.pointer.execute(statment)
+        self.cursor.commit()
+
     def DropTableSoftware(self):
         sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
         if sure=='Y':
