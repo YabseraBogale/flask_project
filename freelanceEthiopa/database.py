@@ -34,6 +34,17 @@ class Database():
         for i in self.result:
             print(i)
 
+    def makeDatabase(self):
+        statment="""
+                    create table Compaine(
+	                    id int not null primary key,
+	                    numberOfRequest int not null,
+	                    listOfStack json not null
+                    );
+                """
+        self.pointer.execute(statment)
+        self.cursor.commit()
+
     def CheckInMessage(self,message):
         statement=f"select message from Software"
         self.pointer.execute(statement)
