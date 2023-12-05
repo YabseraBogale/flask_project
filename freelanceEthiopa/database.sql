@@ -7,5 +7,5 @@ create table Software(
 create table Compaine(
 	id int not null primary key,
 	numberOfRequest int not null,
-	listOfStack json not null
+	listOfStack text not null
 );
