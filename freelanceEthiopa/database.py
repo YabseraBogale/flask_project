@@ -37,7 +37,7 @@ class Database():
         return self.result
 
     def InsertIntoCompanyTable(self,id,nameOfCompany,numberOfRequest,listOfStack):
-        statment="insert into Compaine(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?)"
+        statment="insert into Company(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?,?)"
         self.pointer.execute(statment,(id,nameOfCompany,numberOfRequest,str(listOfStack)))
         self.cursor.commit()
         return "done"

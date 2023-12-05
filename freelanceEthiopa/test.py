@@ -18,9 +18,9 @@ def StackOfCompanyUpDate(msg,CompanyStack,ListOfStack):
     Company=CompanyStack.copy()
     for i in ListOfStack:
         if(msg.count(i)!=0 and i not in Company):
-            Company[i]=msg.count(i)
+            Company[i]=1
         elif(msg.count(i)!=0 and i in Company):
-            Company[i]+=msg.count(i)
+            Company[i]+=1
     return Company
 
 def StackOfCompany(lst,msg):
@@ -68,7 +68,14 @@ for i in msg:
         else:
             Data[name]["Request"]+=1
             Data[name]["stack"]=StackOfCompanyUpDate(i[1],Data[name]["stack"],stack)
-pprint(Data)  
 
+count=0
+for i in Data.keys():
+    test.InsertIntoCompanyTable(list(Data.keys()).index(i)+1,i,Data[i]["Request"],str(Data[name]["stack"]))
+    pprint(list(Data.keys()).index(i)+1)
+    if count==50:
+        sleep(3)
+        count=0
+    count+=1
         
 
