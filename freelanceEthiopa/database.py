@@ -25,13 +25,16 @@ class Database():
         self.cursor=sqlite3.Connection("./freelance-data.db")
         self.pointer=self.cursor.cursor()
     
-    def SeeAll(self):
+    def SeeAllSoftware(self):
         self.pointer.execute("select * from Software")
         self.result=self.pointer.fetchall()
         for i in self.result:
             print(i)
-
-
+    
+    def GetAllSoftware(self):
+        self.pointer.execute("select * from Software")
+        self.result=self.pointer.fetchall()
+        return self.result
 
     def InsertIntoCompanyTable(self,id,nameOfCompany,numberOfRequest,listOfStack):
         statment="insert into Compaine(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?)"
@@ -84,10 +87,6 @@ class Database():
                 self.lst.append(i[0])
         return self.lst
     
-    def Verified(self):
-        statement="select message from software"
-        self.pointer.execute(statement)
-        self.result=self.pointer.fetchall()
-        return self.result
+    
     
     
