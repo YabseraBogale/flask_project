@@ -3,4 +3,4 @@ from database import Database,StackOfTechnology
 
 test=Database()
 
-test.SeeAll()
+print(test.CheckInMessage("node"))

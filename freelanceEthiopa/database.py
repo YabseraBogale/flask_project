@@ -35,7 +35,7 @@ class Database():
             print(i)
 
     def CheckInMessage(self,message):
-        statement="select message from Software where message=?"
+        statement="select message from Software where message=%?"
         self.pointer.execute(statement,(message,))
         self.result=self.pointer.fetchall()
         return self.result
