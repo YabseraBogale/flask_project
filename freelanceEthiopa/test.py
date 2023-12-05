@@ -3,4 +3,4 @@ from database import Database,StackOfTechnology
 
 
 test=Database()
-test.MakeDatabase()
+test.makeDatabase()

@@ -19,9 +19,6 @@ class StackOfTechnology():
     def GetAllName(self):
         return self.list_of_stack
 
-
-
-
 class Database():
 
     def __init__(self):
@@ -34,9 +31,21 @@ class Database():
         for i in self.result:
             print(i)
 
-    def InsertIntoCompainTable(self,id,numberOfRequest,listOfStack):
-        statment="insert into Compaine(id,numberOfRequest,listOfStack) values(?,?,?)"
-        self.pointer.execute(statment,(id,numberOfRequest,listOfStack))
+    def makeDatabase(self):
+        statement="""
+                create table Company(
+                	id int not null primary key,
+	                nameOfCompany varchar(30) not null,
+	                numberOfRequest int not null,
+	                listOfStack text not null
+                );
+                """
+        self.pointer.execute(statement)
+        self.cursor.commit()
+
+    def InsertIntoCompanyTable(self,id,nameOfCompany,numberOfRequest,listOfStack):
+        statment="insert into Compaine(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?)"
+        self.pointer.execute(statment,(id,nameOfCompany,numberOfRequest,str(listOfStack)))
         self.cursor.commit()
         return "done"
 
@@ -48,16 +57,34 @@ class Database():
             self.cursor.commit()
             return "done"
         return "Not deleted"
-    def DropTableCompaine(self):
+    def DropTableCompany(self):
         sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
         if sure=='Y':
-            statement="drop table Compaine"
+            statement="drop table Company"
             self.pointer.execute(statement)
             self.cursor.commit()
             return "done"
         return "Not deleted"
 
-    def CheckInMessage(self,message):
+    def DeleteTableSoftwareWithId(self,id):
+        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
+        if sure=='Y':
+            statement="delete from Software where id=?"
+            self.pointer.execute(statement,(id,))
+            self.cursor.commit()
+            return "done"
+        return "Not deleted"
+    
+    def DeleteTableCompanyWithId(self,id):
+        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
+        if sure=='Y':
+            statement="delete from Company where id=?"
+            self.pointer.execute(statement,(id,))
+            self.cursor.commit()
+            return "done"
+        return "Not deleted"
+    
+    def CheckInMessageSoftware(self,message):
         statement=f"select message from Software"
         self.pointer.execute(statement)
         self.result=self.pointer.fetchall()
