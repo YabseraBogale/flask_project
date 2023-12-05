@@ -4,4 +4,5 @@ from database import Database,StackOfTechnology
 
 test=Database()
 
-pprint(test.CheckInMessage("node"))
+lst=test.CheckInMessage("node")
+print(len(lst))
