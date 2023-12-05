@@ -22,7 +22,7 @@ def StackOfCompanyUpDate(msg,CompanyStack,ListOfStack):
         elif(msg.count(i)!=0 and i in Company):
             Company[i]+=msg.count(i)
     return Company
-    
+
 def StackOfCompany(lst,msg):
     Company={}
     for i in lst:
@@ -44,27 +44,30 @@ for i in msg:
                 Data[name]={"Request":1,"stack":StackOfCompany(stack,i[1])}
             else:
                 Data[name]["Request"]+=1
+                Data[name]["stack"]=StackOfCompanyUpDate(i[1],Data[name]["stack"],stack)
         elif(str(i[1]).find("(Verified")!=-1):
             name=str(i[1]).split("__________________")[1].split("[Verified")[0].strip('\n')
             if name not in Data:
-                Data[name]=1
+                Data[name]={"Request":1,"stack":StackOfCompany(stack,i[1])}
             else:
-                Data[name]+=1
+                Data[name]["Request"]+=1
+                Data[name]["stack"]=StackOfCompanyUpDate(i[1],Data[name]["stack"],stack)
             
         elif(str(i[1]).find("(Verified")!=-1):
             name=str(i[1]).split("______")[1].split("[Verified")[0].strip('\n')
             if name not in Data:
-                Data[name]=1
+                Data[name]={"Request":1,"stack":StackOfCompany(stack,i[1])}
             else:
-                Data[name]+=1
+                Data[name]["Request"]+=1
+                Data[name]["stack"]=StackOfCompanyUpDate(i[1],Data[name]["stack"],stack)
             
     except IndexError as e:
         name=ListSearch(sorted(list(i[1].split("Verified")[0].split("\n"))))
         if name not in Data:
-            Data[name]=1
+            Data[name]={"Request":1,"stack":StackOfCompany(stack,i[1])}
         else:
-            Data[name]+=1
-
+            Data[name]["Request"]+=1
+            Data[name]["stack"]=StackOfCompanyUpDate(i[1],Data[name]["stack"],stack)
 pprint(Data)  
 
         
