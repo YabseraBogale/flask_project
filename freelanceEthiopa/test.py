@@ -1,6 +1,7 @@
+from pprint import pprint
 from database import Database,StackOfTechnology
 
 
 test=Database()
 
-print(test.CheckInMessage("node"))
+pprint(test.CheckInMessage("node"))

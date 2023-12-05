@@ -35,11 +35,14 @@ class Database():
             print(i)
 
     def CheckInMessage(self,message):
-        statement="select message from Software where message=%?"
-        self.pointer.execute(statement,(message,))
+        statement=f"select message from Software"
+        self.pointer.execute(statement)
         self.result=self.pointer.fetchall()
-        return self.result
-
+        self.lst=[]
+        for i in self.result:
+            if(i[0].find(message)):
+                self.lst.append(i[0])
+        return self.lst
 
     
     
