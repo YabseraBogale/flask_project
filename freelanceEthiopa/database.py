@@ -31,17 +31,7 @@ class Database():
         for i in self.result:
             print(i)
 
-    def makeDatabase(self):
-        statement="""
-                create table Company(
-                	id int not null primary key,
-	                nameOfCompany varchar(30) not null,
-	                numberOfRequest int not null,
-	                listOfStack text not null
-                );
-                """
-        self.pointer.execute(statement)
-        self.cursor.commit()
+
 
     def InsertIntoCompanyTable(self,id,nameOfCompany,numberOfRequest,listOfStack):
         statment="insert into Compaine(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?)"

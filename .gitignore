@@ -1,6 +1,7 @@
 /upload/env/
 /freelanceEthiopa/env
 /freelanceEthiopa/freelance-data.db
+/freelanceEthiopa/__pycache__/
 /env/
 /reading-json/env
 /reading-json/__pycache__/
