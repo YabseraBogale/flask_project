@@ -83,6 +83,11 @@ class Database():
             if(i[0].find(message)):
                 self.lst.append(i[0])
         return self.lst
-
+    
+    def Verified(self):
+        statement="select message from software"
+        self.pointer.execute(statement)
+        self.result=self.pointer.fetchall()
+        return self.result
     
     
