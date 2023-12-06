@@ -2,9 +2,9 @@ from pprint import pprint
 from database import Database,StackOfTechnology
 from time import sleep
 
-test=Database().GetAllSoftware()[0:10]
+test=Database()
+phone=test.CheckInMessageSoftware("Phone")
 
-for i in test:
-    print(i)
 
+pprint(len(phone))
 
