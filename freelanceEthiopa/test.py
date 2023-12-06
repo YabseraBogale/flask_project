@@ -3,4 +3,4 @@ from database import Database,StackOfTechnology
 from time import sleep
 
 test=Database()
-test.DropTableSoftware()
+CompanyList=test.GiveMeAllCompanyName()

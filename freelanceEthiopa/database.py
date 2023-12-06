@@ -88,7 +88,13 @@ class Database():
             self.cursor.commit()
             return "done"
         return "Not deleted"
-    
+
+    def GiveMeAllCompanyName(self):
+        statement="select nameOfCompany from Company"
+        self.pointer.execute(statement)
+        self.result=self.pointer.fetchall()
+        return self.result
+
     def CheckInMessageSoftware(self,message):
         statement=f"select message from Software"
         self.pointer.execute(statement)
