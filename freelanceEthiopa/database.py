@@ -101,7 +101,19 @@ class Database():
         self.result=self.pointer.fetchall()
         self.lst=[]
         for i in self.result:
-            if(i[0].find(message)):
+            if(str(i[0]).find(message)!=-1):
+                self.lst.append(i[0])
+        return self.lst
+    
+    def GetLocationAndPhoneFromSoftWare(self):
+        statement=f"select message from Software"
+        self.pointer.execute(statement)
+        self.result=self.pointer.fetchall()
+        self.lst=[]
+        for i in self.result:
+            if(str(i[0]).find("location")!=-1 and str(i[0]).find("phone")!=-1):
+                self.lst.append(i[0])
+            elif(str(i[0]).find("Location")!=-1 and str(i[0]).find("Phone")!=-1):
                 self.lst.append(i[0])
         return self.lst
     

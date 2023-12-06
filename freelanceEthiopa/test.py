@@ -4,7 +4,7 @@ from time import sleep
 
 test=Database()
 phone=test.CheckInMessageSoftware("Phone")
+location=test.CheckInMessageSoftware("location")
 
-
-pprint(len(phone))
-
+print("Number of phone number",len(phone))
+print("Number of location",len(location))
