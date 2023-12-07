@@ -5,7 +5,6 @@ create table Software(
 );
 
 create table Compaine(
-	id int not null primary key,
-	numberOfRequest int not null,
-	listOfStack text not null
+	CompanyName varchar(30) not null,
+	location varchar(30) not null,
 );
