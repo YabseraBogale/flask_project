@@ -6,8 +6,11 @@ create table Software(
 
 create table Compaine(
 	CompanyName varchar(30) not null,
+	JobTitle varchar(30) not null,
 	location varchar(30) not null,
 	NumberOfRequest int not null,
 	Date datetime not null,
+	TechnologyStack json not null,
+
 	
 );
