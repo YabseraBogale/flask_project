@@ -10,5 +10,10 @@ create table Compaine(
 	location varchar(30) not null,
 	NumberOfRequest int not null,
 	Date datetime not null,
-	TechnologyStack json not null,
+	TechnologyStackId int not null,
 );
+
+create table TechnologyStackId(
+	Name varchar(10) not null,
+	Id int not null
+)
