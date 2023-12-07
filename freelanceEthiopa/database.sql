@@ -11,6 +11,4 @@ create table Compaine(
 	NumberOfRequest int not null,
 	Date datetime not null,
 	TechnologyStack json not null,
-
-	
 );
