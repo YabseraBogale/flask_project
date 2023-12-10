@@ -122,7 +122,7 @@ class Database():
         return self.lst
 
     def SeeAllCompanyTitle(self):
-        self.pointer.execute("select message from Company where message like 'Job Title:%'")
+        self.pointer.execute("select message from Software where message like 'Job Title:%'")
         self.result=self.pointer.fetchall()
         return self.result
     
