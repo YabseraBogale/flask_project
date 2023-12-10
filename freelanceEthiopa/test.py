@@ -5,4 +5,4 @@ from time import sleep
 test=Database()
 lst=test.SeeAllCompanyTitle()
 for i in lst:
-    pprint(i[1])
+    pprint(str(i))
