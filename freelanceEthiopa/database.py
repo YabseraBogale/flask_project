@@ -121,6 +121,10 @@ class Database():
                 self.lst.append(i[0])
         return self.lst
 
+    def SeeAllCompanyTitle(self):
+        self.pointer.execute("select message from Company where message like 'Job Title:%'")
+        self.result=self.pointer.fetchall()
+        return self.result
     
     def GetLocationAndPhoneFromSoftWare(self):
         statement=f"select message from Software"
