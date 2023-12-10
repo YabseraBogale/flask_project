@@ -5,7 +5,9 @@ count=0
 test=Database()
 lst=test.SeeAllCompanyTitle()
 for i in lst:
-    pprint(i)
+    print(type(i))
     if count==5:
         break
     count+=1
+
+print("Count of all Comapny with Job title",len(lst))
