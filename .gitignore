@@ -1,4 +1,6 @@
 /upload/env/
+/nextjs/env/
+/nextjs/__pycache__/
 /freelanceEthiopa/env
 /freelanceEthiopa/freelance-data.db
 /freelanceEthiopa/__pycache__/
