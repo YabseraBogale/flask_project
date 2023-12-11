@@ -1,14 +1,9 @@
-
-
 function setup() {
   // put setup code here
     createCanvas(400, 400);
 	background(0,20,0);
 
 }
-
-
-
 let direction=1;
 let x=0;
 let y=0;
@@ -18,9 +13,7 @@ let moitionX=220;
 let moitionY=220;
 
 function draw() {
-  // put drawing code here
 
-	// b/c the the stroke will affect the by making it not have same padding
 	noStroke(220);
 	fill(220);
 	circle(x, y, 20);
