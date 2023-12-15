@@ -9,6 +9,17 @@ public class Program
     private string MiddleName;
     private string LastName;
     public School(){
+      this.FirstName="Johne";
+      this.MiddleName="Swith";
+      this.lastName="Doe";
+    }
+    public School(string FirstName,string MiddleName,string LastName){
+        this.FirstName=FirstName;
+        this.MiddleName=MiddleName;
+        this.LastName=LastName;
+    }
+    public School(string FirstName):this(){
+        this.FirstName=FirstName;
     }
     public string firstName{
       get{return FirstName;}
