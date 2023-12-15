@@ -21,6 +21,9 @@ public class Program
     public School(string FirstName):this(){
         this.FirstName=FirstName;
     }
+    public School(string FirstName,string MiddleName):this(){
+        this.MiddleName=MiddleName;
+    }
     public string firstName{
       get{return FirstName;}
       set{
@@ -44,11 +47,11 @@ public class Program
   }
   public static void Main()
   {
-    School addi=new School();
-    addi.firstName="Yabsera";
-    addi.middleName="Bogale";
-    addi.lastName="Abate";
-    Console.WriteLine($"FIrstName is {addi.firstName}\nLastName is {addi.lastName}\nMiddle Name: {addi.middleName}");
+    School addi=new School("","Yabsera");
+    Console.WriteLine(addi.firstName);
+    Console.WriteLine(addi.lastName);
+    Console.WriteLine(addi.middleName);
+    
   }
 }
 
