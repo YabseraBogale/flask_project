@@ -34,14 +34,19 @@ public class Program
     protected float Final{
       get{return final;}
       set{
-        final=value;
+        if(value>=0 || value<=50){
+            final=value;
+        }
+        else{
+          Console.WriteLine("Enter The correct Value");
+          final=-1;
+        }
       }
     }
     public void InsertValue(float t, float m,float f){
-        Test=t;
-        Mid=m;
-        Final=f;
-
+      Test=t;
+      Mid=m;
+      Final=f;
     }
 
 
