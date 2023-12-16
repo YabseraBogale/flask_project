@@ -4,7 +4,7 @@ using System.Linq;
 
 public class Program
 {
-  class Course{
+  class Result{
     float test;
     float mid;
     float final;
