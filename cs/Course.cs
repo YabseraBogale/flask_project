@@ -11,13 +11,24 @@ public class Program
     protected float Test{
       get{return test;}
       set{
-        test=value;
+        if(value>=0||value<=20){
+            test=value;
+        }
+        else{
+          Console.WriteLine("Enter The correct Value");
+          test=-1;
+        }
       }
     }
     protected float Mid{
       get{return mid;}
       set{
-        mid=value;
+        if(value>=0 || value<=30){
+          mid=value;
+        }else{
+          Console.WriteLine("Enter The correct Value");
+          mid=-1;
+        }
       }
     }
     protected float Final{
@@ -26,7 +37,12 @@ public class Program
         final=value;
       }
     }
-    
+    public void InsertValue(float t, float m,float f){
+        Test=t;
+        Mid=m;
+        Final=f;
+
+    }
 
 
   }
