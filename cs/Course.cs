@@ -54,8 +54,11 @@ public class Program
     public void ViewResult(string courseName){
       Console.WriteLine("test-exam: {0}\nmid-exam: {1}\nfinal-exam:{2}\ntotal-result:{3}");
     }
-
-
+  }
+  class Course:Result{
+    string CourseId{get;set;}
+    string name{get;set;}
+    
   }
   public static void Main()
   {
