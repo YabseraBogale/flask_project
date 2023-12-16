@@ -48,6 +48,12 @@ public class Program
       Mid=m;
       Final=f;
     }
+    public float CaluclateTotal(){
+      return Test+Mid+Final;
+    }
+    public void ViewResult(string courseName){
+      Console.WriteLine("test-exam: {0}\nmid-exam: {1}\nfinal-exam:{2}\ntotal-result:{3}");
+    }
 
 
   }
