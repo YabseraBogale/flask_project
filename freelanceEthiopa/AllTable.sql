@@ -8,7 +8,7 @@ create table channelName(
     -- if unknown it is going to be 000000
     Phone int not null,
     -- if unknown it is going to be unknown
-    email varchar(20) not null,
+    Email varchar(20) not null
 );
 
-insert into CompanyName(CompanyName,RequestData,Location,JobPosition,Salary,)
+insert into CompanyName(CompanyName,RequestData,Location,JobPosition,Salary,Phone,Email) values(?,?,?,?,?,?,?)
