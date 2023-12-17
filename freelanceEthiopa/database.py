@@ -1,143 +1,49 @@
+from pprint import pprint
 import sqlite3
+class TableCreate():
 
-class StackOfTechnology():
+    def __init__(self) -> None:
+        self.connection=sqlite3.Connection("prime-data.db")
+        self.pointer=self.connection.cursor()
     
-    def __init__(self):
-        self.list_of_stack=["mysql","go","python","c++","javascript",
-	        			"js","sql","nodejs","react","vue","php",
-		        		"c#",".net","django","flask","reactjs",
-			         	"larvel","postgres","dart","flutter",
-				        "durple","java","spring","spring boot",
-				        "boot","css","bootstrap","tailwind","html"
-				        "html5","saas","node","backend","frontend","fullstack","full stack",
-	    	    	    "bot","agile","wordpress","git","github","version control",
-		    	        "mobile","andriod","ios","iphone","application","stack",
-			            "data science","ai","machine learning","web","developer",
-			            "api","rest","mern","lamp","mean","cs","front end"
-                    ]
-    
-    def GetAllName(self):
-        return self.list_of_stack
-
-class Database():
-
-    def __init__(self):
-        self.cursor=sqlite3.Connection("./freelance-data.db")
-        self.pointer=self.cursor.cursor()
-    
-    def SeeAllSoftware(self):
-        self.pointer.execute("select * from Software")
-        self.result=self.pointer.fetchall()
-        for i in self.result:
-            print(i)
-    
-    def GetAllSoftware(self):
-        self.pointer.execute("select * from Software")
-        self.result=self.pointer.fetchall()
-        return self.result
-
-    def InsertIntoCompanyTable(self,id,nameOfCompany,numberOfRequest,listOfStack):
-        statment="insert into Company(id,nameOfCompany,numberOfRequest,listOfStack) values(?,?,?,?)"
-        self.pointer.execute(statment,(id,nameOfCompany,numberOfRequest,str(listOfStack)))
-        self.cursor.commit()
-        return "done"
-
-    def MakeData(self):
-        statment="""
-                create table Company(
-	                id int not null primary key,
-	                nameOfCompany varchar(30) not null,
-	                numberOfRequest int not null,
-	                listOfStack text not null
+    def CreateTelegramChannelTable(self,telegramchannelname) -> str:
+        statment=f"""
+                CREATE TABLE IF NOT EXISTS {telegramchannelname} (
+                    CompanyName varchar(20) not null,
+                    RequestData datetime not null,
+                    Location varchar(20) not null,
+                    JobPosition varchar(20) not null,
+                    Salary float not null,
+                    Phone int not null,
+                    Email varchar(20) not null
                 );
-                """
+            """
         self.pointer.execute(statment)
-        self.cursor.commit()
-
-    def DropTableSoftware(self):
-        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
-        if sure=='Y':
-            statement="drop table Software"
-            self.pointer.execute(statement)
-            self.cursor.commit()
-            return "done"
-        return "Not deleted"
-    def DropTableCompany(self):
-        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
-        if sure=='Y':
-            statement="drop table Company"
-            self.pointer.execute(statement)
-            self.cursor.commit()
-            return "done"
-        return "Not deleted"
-
-    def DeleteTableSoftwareWithId(self,id):
-        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
-        if sure=='Y':
-            statement="delete from Software where id=?"
-            self.pointer.execute(statement,(id,))
-            self.cursor.commit()
-            return "done"
-        return "Not deleted"
+        self.connection.commit()
+        return "done"
     
-    def DeleteTableCompanyWithId(self,id):
-        sure=input("Are you sure you want to delete the data ? 'Y' for yes or 'N' for no ? ")
-        if sure=='Y':
-            statement="delete from Company where id=?"
-            self.pointer.execute(statement,(id,))
-            self.cursor.commit()
-            return "done"
-        return "Not deleted"
+    def InsertIntoTable(self,tablename,companyname,requestdata,location,jobposition,salary,phone,email) -> str:
+        statment=f"insert into {tablename}(CompanyName,RequestData,Location,JobPosition,Salary,Phone,Email) values(?,?,?,?,?,?,?)"
+        self.pointer.execute(statment,(companyname,requestdata,location,jobposition,salary,phone,email))
+        self.connection.commit()
+        return "done"
+    
+    def SeeInTable(self,tablename) -> tuple:
+        statment=f"select * from {tablename}"
+        self.pointer.execute(statment)
+        result=self.pointer.fetchall()
+        return result
 
-    def GiveMeAllCompanyName(self):
-        statement="select nameOfCompany from Company"
-        self.pointer.execute(statement)
-        self.result=self.pointer.fetchall()
-        return self.result
+    def TableViewer(self,someresult:tuple) -> None:
+        for i in someresult:
+            pprint(i)
 
-    def CheckInMessageSoftware(self,message):
-        statement=f"select message from Software"
-        self.pointer.execute(statement)
-        self.result=self.pointer.fetchall()
-        self.lst=[]
-        for i in self.result:
-            if(str(i[0]).find(message)!=-1):
-                self.lst.append(i[0])
-        return self.lst
+    def CloseConnection() ->str:
+        self.connection.closed()
+        return "Connection closed"
 
-    def GetLocationOrPhoneFromSoftWare(self):
-        statement=f"select message from Software"
-        self.pointer.execute(statement)
-        self.result=self.pointer.fetchall()
-        self.lst=[]
-        for i in self.result:
-            if(str(i[0]).find("location")!=-1 or str(i[0]).find("phone")!=-1):
-                self.lst.append(i[0])
-            elif(str(i[0]).find("Location")!=-1 or str(i[0]).find("Phone")!=-1):
-                self.lst.append(i[0])
-            elif(str(i[0]).find("Location")!=-1 or str(i[0]).find("phone")!=-1):
-                self.lst.append(i[0])
-            elif(str(i[0]).find("location")!=-1 or str(i[0]).find("Phone")!=-1):
-                self.lst.append(i[0])
-        return self.lst
 
-    def SeeAllCompanyTitle(self):
-        self.pointer.execute("select message from Software where message like 'Job Title:%'")
-        self.result=self.pointer.fetchall()
-        return self.result
-    
-    def GetLocationAndPhoneFromSoftWare(self):
-        statement=f"select message from Software"
-        self.pointer.execute(statement)
-        self.result=self.pointer.fetchall()
-        self.lst=[]
-        for i in self.result:
-            if(str(i[0]).find("location")!=-1 and str(i[0]).find("phone")!=-1):
-                self.lst.append(i[0])
-            elif(str(i[0]).find("Location")!=-1 and str(i[0]).find("Phone")!=-1):
-                self.lst.append(i[0])
-        return self.lst
-    
-    
-    
-    
+    def DropTable(self,name) ->str:
+        statment=f"drop table {name}"
+        self.pointer.execute(statment)
+        return f"Droped table {name}"
