@@ -4,5 +4,7 @@ create table channelName(
     RequestData datetime not null,
     Location varchar(20) not null,
     JobPosition varchar(20) not null,
-    Salary floatnot not null,
+    Salary float not null,
 );
+
+insert into CompanyName(CompanyName,RequestData,Location,JobPosition,)
