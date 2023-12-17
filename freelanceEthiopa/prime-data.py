@@ -1,3 +1,4 @@
+from pprint import pprint
 import sqlite3
 class TableCreate():
 
@@ -6,8 +7,8 @@ class TableCreate():
         self.pointer=self.connection.cursor()
     
     def CreateTelegramChannelTable(self,telegramchannelname) -> str:
-        statment="""
-                create table ?(
+        statment=f"""
+                create table {telegramchannelname} (
                     CompanyName varchar(20) not null,
                     RequestData datetime not null,
                     Location varchar(20) not null,
@@ -17,7 +18,7 @@ class TableCreate():
                     Email varchar(20) not null
                 );
             """
-        self.pointer.execute(statment,(telegramchannelname,))
+        self.pointer.execute(statment)
         self.connection.commit()
         return "done"
     
@@ -32,6 +33,10 @@ class TableCreate():
         self.pointer.execute(statment,(tablename,))
         result=self.pointer.fetchall()
         return result
+
+    def TableViewer(self,someresult:tuple) -> None:
+        for i in someresult:
+            pprint(i)
 
     def CloseConnection() ->str:
         self.connection.closed()
