@@ -10,5 +10,13 @@ create table channelName(
     -- if unknown it is going to be unknown
     Email varchar(20) not null
 );
-
+-- insertaion in table
 insert into CompanyName(CompanyName,RequestData,Location,JobPosition,Salary,Phone,Email) values(?,?,?,?,?,?,?)
+
+-- see all in table
+
+select * from channelName;
+
+-- see selected column from channel name
+
+select ?,? from channelName
