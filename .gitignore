@@ -1,5 +1,6 @@
 /upload/env/
 /Api/env/
+/Api//__pycache__/
 /nextjs/env/
 /nextjs/node_modules/
 /nextjs/__pycache__/
