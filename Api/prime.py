@@ -42,6 +42,3 @@ class Prime():
 
 
 
-
-test=Prime()
-test.CreateTable()
