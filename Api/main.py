@@ -13,7 +13,7 @@ for i in title:
     app.InsertIntoSearchTermTitle(i)
 
 for i in name:
-    app.InsertIntoSearchTermCompanyName(name)
+    app.InsertIntoSearchTermCompanyName(i)
 
 
 
