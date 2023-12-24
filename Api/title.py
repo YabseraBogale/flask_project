@@ -49,9 +49,4 @@ class JobTitle():
         return self.title
 
 
-larget=0
-for i in JobTitle().GiveJobTitle():
-    if(larget<=len(i)):
-        largest=len(i)
 
-print("largest:",largest)

@@ -36,16 +36,6 @@ class CompanyName():
     def GiveCompanyName(self):
         return self.companyname
     
-largest=0
-name=[]
-count=0
-for i in CompanyName().GiveCompanyName():
-    if (len(i)<80):
-        count+=1
-        name.append(i)
-
-
-print("count:",count,"name:",len(CompanyName().GiveCompanyName()))
 
 
 
