@@ -5,10 +5,10 @@ class Prime():
         self.pointer=self.connection.cursor()
 
     def CreateTable(self):
-        statment="create table IF NOT EXISTS create table SearchTermTitle( title varchar(30) not null);"
+        statment="create table IF NOT EXISTS SearchTermTitle( title varchar(30) not null);"
         self.pointer.execute(statment)
         self.connection.commit()
-        statment="create table IF NOT EXISTS create table SearchTermCompanyName( companyname varchar(80) not null);"
+        statment="create table IF NOT EXISTS SearchTermCompanyName( companyname varchar(80) not null);"
         self.pointer.execute(statment)
         self.connection.commit()
         return "Table Created"
