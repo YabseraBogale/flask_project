@@ -8,6 +8,12 @@ title=JobTitle().GiveJobTitle()
 name=CompanyName().GiveCompanyName()
 
 
-for i in range(0,5):
-    print(title[i])
+for i in title:
+    app.InsertIntoSearchTermTitle(i)
+
+for i in name:
+    app.InsertIntoSearchTermCompanyName(name)
+
+
+
 
