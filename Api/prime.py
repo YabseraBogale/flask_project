@@ -19,7 +19,7 @@ class Prime():
         self.connection.commit()
         return f"Successful into Title: {title}"
 
-    def InsertIntoSearchTermCompanyName(self,name):
+    def InsertIntoSearchTermCompanyName(self,companyname):
         statment="insert into SearchTermCompanyName(companyname) values(?)"
         self.pointer.execute(statment,(companyname,))
         self.connection.commit()
