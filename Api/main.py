@@ -1,19 +1,15 @@
+from pprint import pprint
 from prime import Prime
 from title import JobTitle
 from companyname import CompanyName
 
-Prime().CreateTable()
 app=Prime()
 
-title=JobTitle().GiveJobTitle()
-name=CompanyName().GiveCompanyName()
+title=app.AllGetTitle()
+name=app.AllGetCompanyName()
 
-
-for i in title:
-    app.InsertIntoSearchTermTitle(i)
-
-for i in name:
-    app.InsertIntoSearchTermCompanyName(i)
+for i in range(0,10):
+    pprint(name[i])
 
 
 

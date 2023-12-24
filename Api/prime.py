@@ -31,6 +31,12 @@ class Prime():
         result=self.pointer.fetchall()
         return result
 
+    def SearchForInTitleEnd(self,term):
+        statment=f"select title from SearchTermTitle where title like %{term}'"
+        self.pointer(statment)
+        result=self.pointer.fetchall()
+        return result
+
     def AllGetTitle(self):
         statment="select title from SearchTermTitle"
         self.pointer.execute(statment)
@@ -48,6 +54,5 @@ class Prime():
         self.pointer(statment,(companyname,))
         result=self.pointer.fetchall()
         return result
-
 
 
