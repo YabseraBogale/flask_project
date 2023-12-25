@@ -79,12 +79,12 @@ class Search():
         result=self.pointer.fetchall()
         return result
 
-    def SearchInMessage(self,message):
+    def SearchInMessage(self,message,index):
         title=self.GetAllSearchTermTitle()
         location=self.GetAllSearchTermLocation()
         companyname=self.GetAllSearchTermCompanyName()
         stack=self.GetAllSearchTermTechStack()
-        found={"title":[],"companyname":"","location":[],"stack":[]}
+        found={"index":index,"title":[],"companyname":"","location":[],"stack":[]}
         for i in title:
             if(message.count(i)!=0 and i not in found["title"]):
                 found["title"].append(i)
