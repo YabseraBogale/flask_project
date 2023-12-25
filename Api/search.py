@@ -79,6 +79,33 @@ class Search():
         result=self.pointer.fetchall()
         return result
 
+    def SearchInMessage(self,message):
+        title=self.GetAllSearchTermTitle()
+        location=self.GetAllSearchTermLocation()
+        companyname=self.GetAllSearchTermCompanyName()
+        stack=self.GetAllSearchTermTechStack()
+        found={"title":[],"companyname":"","location":[],"stack":[]}
+        for i in title:
+            if(message.count(i)!=0 and i not in found["title"]):
+                found["title"].append(i)
+        for i in location:
+            if(message.count(i)!=0 and i not in found["location"]):
+                found["location"].append(i)
+        for i in companyname:
+            if(message.count(i)!=0 and i not in found["companyname"]):
+                found["companyname"]=i
+                break
+        for i in stack:
+            if(message.count(i)!=0 and i not in found["stack"]):
+                found["stack"].append(i)
+        return found
+
+
+
+
+
+
+
     def IsTitleInSearchTerm(self,title):
         statment="select title from SearchTermTitle where title=?"
         self.pointer(statment,(title,))
