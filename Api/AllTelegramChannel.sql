@@ -27,11 +27,9 @@ create table SearchTermCompanyName(
 );
 
 
-create table Location(
-    location varchar(50) not null
-);
+create table SearchTermLocation( location varchar(50) not null );
 
-insert into Location(location) value(?)
+insert into SearchTermLocation(location) value(?)
 
 select * from Location
 

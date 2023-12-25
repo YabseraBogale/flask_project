@@ -1,7 +1,8 @@
 import sqlite3
 class Prime():
+
     def __init__(self):
-        self.connection=sqlite3.Connection("prime.db")
+        self.connection=sqlite3.Connection("Search.db")
         self.pointer=self.connection.cursor()
 
     def CreateTable(self):
@@ -11,33 +12,48 @@ class Prime():
         statment="create table IF NOT EXISTS SearchTermCompanyName( companyname varchar(80) not null);"
         self.pointer.execute(statment)
         self.connection.commit()
+        statment="create table IF NOT EXISTS SearchTermLocation( location varchar(50) not null );"
+        self.pointer.execute(statment)
+        self.connection.commit()
         return "Table Created"
 
     def InsertIntoSearchTermTitle(self,title):
         statment="insert into SearchTermTitle(title) values(?)"
         self.pointer.execute(statment,(title,))
         self.connection.commit()
-        return f"Successful into Title: {title}"
+        return f"Successfully into SearchTermTitle: {title}"
 
     def InsertIntoSearchTermCompanyName(self,companyname):
         statment="insert into SearchTermCompanyName(companyname) values(?)"
         self.pointer.execute(statment,(companyname,))
         self.connection.commit()
-        return f"Successful into Company Name: {companyname}"
+        return f"Successfully into earchTermCompanyName: {companyname}"
 
-    def AllGetCompanyName(self):
-        statment="select companyname from SearchTermCompanyName"
-        self.pointer.execute(statment)
-        result=self.pointer.fetchall()
-        return result
+    def InsertIntoSearchTermLocation(self,location):
+        statment="insert into SearchTermLocation(location) value(?);"
+        self.pointer.execute(statment,(location,))
+        self.connection.commit()
+        return f"Successfully into Location: {location}"
 
     def SearchForInTitleEnd(self,term):
         statment="select title from SearchTermTitle where title ;"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
-
-    def AllGetTitle(self):
+    
+    def GetAllSearchTermLocation(self):
+        statment="select * from Location"
+        self.pointer.execute(statment)
+        result=self.pointer.fetchall()
+        return result
+    
+    def GetAllSearchTermCompanyName(self):
+        statment="select companyname from SearchTermCompanyName"
+        self.pointer.execute(statment)
+        result=self.pointer.fetchall()
+        return result
+    
+    def GetAllSearchTermTitle(self):
         statment="select title from SearchTermTitle"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
@@ -54,5 +70,9 @@ class Prime():
         self.pointer(statment,(companyname,))
         result=self.pointer.fetchall()
         return result
+    
+    def CloseConnection(self):
+        self.connection.close()
+        return "Connection Closed"
 
 
