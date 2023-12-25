@@ -31,10 +31,23 @@ create table SearchTermCompanyName(
 );
 
 
-create table location(
-    location 
+create table Location(
+    location varchar(50) not null
 );
 
+
+-- Inserting into location
+
+insert into Location(location) value(?)
+
+
+-- selecting all location
+
+select * from Location
+
+-- counting all location database
+
+count (location) from Location
 
 -- Inserting into database from table SearchTerm
 insert into SearchTerm(title) values(?)
