@@ -100,12 +100,6 @@ class Search():
                 found["stack"].append(i)
         return found
 
-
-
-
-
-
-
     def IsTitleInSearchTerm(self,title):
         statment="select title from SearchTermTitle where title=?"
         self.pointer(statment,(title,))
