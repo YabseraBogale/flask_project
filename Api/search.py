@@ -1,5 +1,6 @@
 import sqlite3
-class Prime():
+from location import Location
+class Search():
 
     def __init__(self):
         self.connection=sqlite3.Connection("Search.db")
@@ -76,3 +77,11 @@ class Prime():
         return "Connection Closed"
 
 
+app=Search()
+app.CreateTable()
+
+location=Location().GiveLocation()
+
+for i in location:
+    done=app.InsertIntoSearchTermLocation(i)
+    print(done)
