@@ -1,5 +1,4 @@
 import sqlite3
-from location import Location
 class Search():
 
     def __init__(self):
@@ -43,7 +42,7 @@ class Search():
         return result
     
     def GetAllSearchTermLocation(self):
-        statment="select * from Location"
+        statment="select * from SearchTermLocation"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
@@ -83,11 +82,8 @@ class Search():
         return "Connection Closed"
 
 
-app=Search()
-app.CreateTable()
+app=Search().GetAllSearchTermLocation()
 
-location=Location().GiveLocation()
+for i in app:
+    print(i)
 
-for i in location:
-    done=app.InsertIntoSearchTermLocation(i)
-    print(done)
