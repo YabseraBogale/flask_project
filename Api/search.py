@@ -44,8 +44,8 @@ class Search():
         return f"Successfully into SearchTermLocation: {location}"
 
     def InsertIntoSearchTermTechStack(self,stack):
-        statment="insert into TechStack(id,stack) values(?,?)"
-        self.pointer.execute(statment,(stack,))
+        statment="insert into TechStack(id,stack) values(?)"
+        self.pointer.execute(statment,(stack))
         self.connection.commit()
         return f"Added {stack} to Database"
 
