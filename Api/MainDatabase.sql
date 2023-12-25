@@ -10,9 +10,9 @@ create table CompanyInformation(
 
 insert into CompanyInformation(companyname,telegramchannel,title,date,location,techstackid) values(?,?,?,?,?,?)
 
-create table TechStack( 
-    id int not null primary key, 
+create table SearchTermTechStack(
+    id int not null primary key,
     stack json
 )
 
-insert into TechStack(id,filename) values(?,?)
+insert into TechStack(id,stack) values(?,?)

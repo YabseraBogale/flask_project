@@ -6,15 +6,23 @@ class Search():
         self.pointer=self.connection.cursor()
 
     def CreateTable(self):
+
         statment="create table IF NOT EXISTS SearchTermTitle( title varchar(30) not null);"
         self.pointer.execute(statment)
         self.connection.commit()
+
         statment="create table IF NOT EXISTS SearchTermCompanyName( companyname varchar(80) not null);"
         self.pointer.execute(statment)
         self.connection.commit()
+
         statment="create table IF NOT EXISTS SearchTermLocation( location varchar(50) not null );"
         self.pointer.execute(statment)
         self.connection.commit()
+
+        statment="create table IF NOT EXISTS SearchTermTechStack( id int not null primary key, stack json );"
+        self.pointer.execute(statment)
+        self.connection.commit()
+
         return "Table Created"
 
     def InsertIntoSearchTermTitle(self,title):
@@ -34,6 +42,12 @@ class Search():
         self.pointer.execute(statment,(location,))
         self.connection.commit()
         return f"Successfully into SearchTermLocation: {location}"
+
+    def InsertIntoSearchTermTechStack(self,id,stack):
+        statment="insert into TechStack(id,stack) values(?,?)"
+        self.pointer.execute(statment,(id,stack))
+        self.connection.commit()
+        return f"Added {stack} to Database"
 
     def SearchForInTitleEnd(self,term):
         statment="select title from SearchTermTitle where title ;"
@@ -82,8 +96,6 @@ class Search():
         return "Connection Closed"
 
 
-app=Search().GetAllSearchTermLocation()
+app=Search()
 
-for i in app:
-    print(i)
-
+app.CreateTable()
