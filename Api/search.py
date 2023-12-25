@@ -105,3 +105,10 @@ class Search():
 app=Search()
 
 app.CreateTable()
+
+from stack import Stack
+
+stack = Stack().GiveTechStack()
+
+for i in stack:
+    print(app.InsertIntoSearchTermTechStack(i))
