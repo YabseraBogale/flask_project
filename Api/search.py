@@ -31,10 +31,10 @@ class Search():
         return f"Successfully into earchTermCompanyName: {companyname}"
 
     def InsertIntoSearchTermLocation(self,location):
-        statment="insert into SearchTermLocation(location) value(?);"
+        statment="insert into SearchTermLocation(location) values(?);"
         self.pointer.execute(statment,(location,))
         self.connection.commit()
-        return f"Successfully into Location: {location}"
+        return f"Successfully into SearchTermLocation: {location}"
 
     def SearchForInTitleEnd(self,term):
         statment="select title from SearchTermTitle where title ;"
@@ -72,6 +72,12 @@ class Search():
         result=self.pointer.fetchall()
         return result
     
+    def DropSearchTermLocation(self):
+        statment="drop table SearchTermLocation"
+        self.pointer.execute(statment)
+        self.connection.commit()
+        return "Dropped table SearchTermLocation"
+
     def CloseConnection(self):
         self.connection.close()
         return "Connection Closed"
