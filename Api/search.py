@@ -45,7 +45,7 @@ class Search():
 
     def InsertIntoSearchTermTechStack(self,stack):
         statment="insert into SearchTermTechStack(stack) values(?)"
-        self.pointer.execute(statment,(stack))
+        self.pointer.execute(statment,(stack,))
         self.connection.commit()
         return f"Added {stack} to Database"
 
@@ -69,6 +69,12 @@ class Search():
     
     def GetAllSearchTermTitle(self):
         statment="select title from SearchTermTitle"
+        self.pointer.execute(statment)
+        result=self.pointer.fetchall()
+        return result
+
+    def GetAllSearchTermTechStack(self):
+        statment="select stack from SearchTermTechStack"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
@@ -102,13 +108,4 @@ class Search():
         return "Connection Closed"
 
 
-app=Search()
 
-app.CreateTable()
-
-from stack import Stack
-
-stack = Stack().GiveTechStack()
-
-for i in stack:
-    print(app.InsertIntoSearchTermTechStack(i))
