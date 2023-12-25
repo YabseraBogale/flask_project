@@ -12,7 +12,7 @@ insert into CompanyInformation(companyname,telegramchannel,title,date,location,t
 
 create table TechStack( 
     id int not null primary key, 
-    filename varchar(20) not null 
+    stack json
 )
 
 insert into TechStack(id,filename) values(?,?)
