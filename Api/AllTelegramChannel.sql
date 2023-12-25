@@ -30,6 +30,12 @@ create table SearchTermCompanyName(
     companyname varchar(80) not null
 );
 
+
+create table location(
+    location 
+);
+
+
 -- Inserting into database from table SearchTerm
 insert into SearchTerm(title) values(?)
 insert into SearchTermCompanyName(companyname) values(?)
