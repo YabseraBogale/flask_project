@@ -19,7 +19,7 @@ class Search():
         self.pointer.execute(statment)
         self.connection.commit()
 
-        statment="create table IF NOT EXISTS SearchTermTechStack( id int not null primary key, stack json );"
+        statment="create table IF NOT EXISTS SearchTermTechStack( stack varchar(15) not null );"
         self.pointer.execute(statment)
         self.connection.commit()
 
@@ -43,9 +43,9 @@ class Search():
         self.connection.commit()
         return f"Successfully into SearchTermLocation: {location}"
 
-    def InsertIntoSearchTermTechStack(self,id,stack):
+    def InsertIntoSearchTermTechStack(self,stack):
         statment="insert into TechStack(id,stack) values(?,?)"
-        self.pointer.execute(statment,(id,stack))
+        self.pointer.execute(statment,(stack,))
         self.connection.commit()
         return f"Added {stack} to Database"
 
@@ -90,6 +90,12 @@ class Search():
         self.pointer.execute(statment)
         self.connection.commit()
         return "Dropped table SearchTermLocation"
+
+    def DropSearchTermTechStack(self):
+        statment="drop table SearchTermTechStack"
+        self.pointer.execute(statment)
+        self.connection.commit()
+        return "Dropped table SearchTermTechStack"
 
     def CloseConnection(self):
         self.connection.close()
