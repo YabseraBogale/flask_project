@@ -54,19 +54,19 @@ class Search():
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
-    
+
     def GetAllSearchTermLocation(self):
         statment="select * from SearchTermLocation"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
-    
+
     def GetAllSearchTermCompanyName(self):
         statment="select companyname from SearchTermCompanyName"
         self.pointer.execute(statment)
         result=self.pointer.fetchall()
         return result
-    
+
     def GetAllSearchTermTitle(self):
         statment="select title from SearchTermTitle"
         self.pointer.execute(statment)
@@ -86,18 +86,18 @@ class Search():
         stack=self.GetAllSearchTermTechStack()
         found={"index":index,"title":[],"companyname":"","location":[],"stack":[]}
         for i in title:
-            if(message.count(i)!=0 and i not in found["title"]):
-                found["title"].append(i)
+            if(message.count(i[0])!=0 and i[0] not in found["title"]):
+                found["title"].append(i[0])
         for i in location:
-            if(message.count(i)!=0 and i not in found["location"]):
+            if(message.count(i[0])!=0 and i[0] not in found["location"]):
                 found["location"].append(i)
         for i in companyname:
-            if(message.count(i)!=0 and i not in found["companyname"]):
-                found["companyname"]=i
+            if(message.count(i[0])!=0 and i[0] not in found["companyname"]):
+                found["companyname"]=i[0]
                 break
         for i in stack:
-            if(message.count(i)!=0 and i not in found["stack"]):
-                found["stack"].append(i)
+            if(message.count(i[0])!=0 and i[0] not in found["stack"]):
+                found["stack"].append(i[0])
         return found
 
     def IsTitleInSearchTerm(self,title):
@@ -111,7 +111,7 @@ class Search():
         self.pointer(statment,(companyname,))
         result=self.pointer.fetchall()
         return result
-    
+
     def DropSearchTermLocation(self):
         statment="drop table SearchTermLocation"
         self.pointer.execute(statment)
