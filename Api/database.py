@@ -17,7 +17,3 @@ class Database():
         self.connection.commit()
         return "Sucessfully inserted into table Company infromation"
     
-    def InsertIntoTechStack(self,id,filename):
-        statment="insert into TechStack(id,filename) values(?,?)"
-        self.pointer.execute(statment,(id,filename))
-        self.connection.commit()
