@@ -20,3 +20,9 @@ class Database():
         self.connection.commit()
         return "Sucessfully inserted into table Company infromation"
 
+    def InsertIntoMetaData(self,nameofchannel,sizeofdataset,foundjob,perectange):
+        statment="insert into MetaData(nameofchannel,sizeofdataset,foundjob,perectange) values(?,?,?,?)"
+        self.pointer.execute(statment,(nameofchannel,sizeofdataset,foundjob,perectange))
+        self.connection.commit()
+
+
