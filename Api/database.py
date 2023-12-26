@@ -12,7 +12,7 @@ class Database():
         return "Sucessfully made table"
     
     def InsetIntoCompanyInformation(self,name,telegramchannel,title,date,location,stack):
-        statment="insert into CompanyInformation(companyname,telegramchannel,title,date,location,techstackid) values(?,?,?,?,?,?)"
+        statment="insert into CompanyInformation(companyname,telegramchannel,title,date,location,stack) values(?,?,?,?,?,?)"
         self.pointer.execute(statment,(name,telegramchannel,title,date,location,stack))
         self.connection.commit()
         return "Sucessfully inserted into table Company infromation"
