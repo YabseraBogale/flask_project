@@ -5,7 +5,6 @@ class Database():
         self.pointer=self.connection.cursor()
 
     def CreateTable(self):
-
         statment="create table IF NOT EXISTS CompanyInformation( companyname varchar(80) not null, telegramchannel varchar(20) not null, title varchar(30) not null,date datetime not null,location(50) not null, stack json )"
         self.pointer.execute(statment)
         self.connection.commit()
