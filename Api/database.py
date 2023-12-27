@@ -23,3 +23,4 @@ class Database():
         statment="insert into TechStack(id,filename) values(?,?)"
         self.pointer.execute(statment,(id,filename))
         self.connection.commit()
+        return "Scessfully inserted into Tech Stack"

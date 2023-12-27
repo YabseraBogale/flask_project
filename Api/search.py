@@ -1,5 +1,4 @@
 import sqlite3
-from location import Location
 class Search():
 
     def __init__(self):
@@ -83,11 +82,4 @@ class Search():
         return "Connection Closed"
 
 
-app=Search()
-app.CreateTable()
 
-location=Location().GiveLocation()
-
-for i in location:
-    done=app.InsertIntoSearchTermLocation(i)
-    print(done)
