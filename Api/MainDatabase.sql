@@ -1,18 +1,18 @@
-create table CompanyInformation(
-    companyname varchar(80) not null, 
-    telegramchannel varchar(20) not null, 
+create table IF NOT EXISTS CompanyInformation(
+    companyname varchar(80) not null,
+    telegramchannel varchar(20) not null unique,
     title varchar(30) not null,
     date datetime not null,
     location(50) not null,
-    techstackid int not null,
-    foreign key (techstackid) references TechStack(id)
+    stack json
 )
 
-insert into CompanyInformation(companyname,telegramchannel,title,date,location,techstackid) values(?,?,?,?,?,?)
-
-create table TechStack( 
-    id int not null primary key, 
-    filename varchar(20) not null 
+create table IF NOT EXISTS MetaData(
+    nameofchannel varchar(80) not null,
+    sizeofdataset int not null,
+    foundjob int not null,
+    perectange float not null
 )
 
-insert into TechStack(id,filename) values(?,?)
+insert into CompanyInformation(companyname,telegramchannel,title,date,location,stack) values(?,?,?,?,?,?)
+insert into MetaData(nameofchannel,sizeofdataset,foundjob,perectange) values(?,?,?,?)
