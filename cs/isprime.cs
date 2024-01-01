@@ -60,3 +60,19 @@ public static void Main(string[] args)
         return a;
         
     }
+    
+
+
+public static bool Prime(int num){
+    if(num<=0 || num==1){
+        return false;
+    }
+
+    for(double i=2;i<=(Math.Sqrt(num));i++){
+        if(num%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
