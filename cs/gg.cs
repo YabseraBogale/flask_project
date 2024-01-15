@@ -1,5 +1,3 @@
-you life, [11/22/23 5:00 PM]
-[Forwarded from Miki D]
 //C# equivalents
 
 using System;
