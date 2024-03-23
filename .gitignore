@@ -1,5 +1,6 @@
 /upload/env/
 /Api/env/
+/Api/freelance-data-v2.db
 /Api/__pycache__/
 /nextjs/env/
 /nextjs/node_modules/
