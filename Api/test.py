@@ -14,4 +14,4 @@ result=pointer.fetchall()
 
 for i in result:
     companyname=i[0]
-    print(type(companyname))
+    print(searcher.InsertIntoSearchTermCompanyName(companyname))
