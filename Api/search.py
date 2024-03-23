@@ -35,7 +35,7 @@ class Search():
         statment="insert into SearchTermCompanyName(companyname) values(?)"
         self.pointer.execute(statment,(companyname,))
         self.connection.commit()
-        return f"Successfully into SearchTermCompanyName: {companyname}"
+        return f"Successfully Inserted into SearchTermCompanyName: {companyname}"
 
     def InsertIntoSearchTermLocation(self,location):
         statment="insert into SearchTermLocation(location) values(?);"
