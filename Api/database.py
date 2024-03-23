@@ -23,9 +23,3 @@ class Database():
         statment="insert into MetaData(nameofchannel,sizeofdataset,foundjob,perectange) values(?,?,?,?)"
         self.pointer.execute(statment,(nameofchannel,sizeofdataset,foundjob,perectange))
         self.connection.commit()
-<<<<<<< HEAD
-        return "Scessfully inserted into Tech Stack"
-=======
-
-
->>>>>>> 462470f2bcebb48ed7bef017218b47cfd0334ff8
